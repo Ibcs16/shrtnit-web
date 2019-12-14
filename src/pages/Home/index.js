@@ -30,7 +30,7 @@ export default function Home({ history }) {
 
   useEffect(() => {
     socket.on('created_url', url => {
-      console.tron('criou');
+      console.log('criou');
       setIncomingURLS([...incomingURLs, url]);
     });
   }, [socket, incomingURLs]);
@@ -47,7 +47,7 @@ export default function Home({ history }) {
 
       if (res.status === 200) {
         if (res.data.error) {
-          console.tron(res.data);
+          console.log(res.data);
           setError({ message: res.data.message });
           // const timer = setTimeout(() => {
           //   setError({ message: "" });
@@ -68,7 +68,7 @@ export default function Home({ history }) {
         setError({ message: "Couldn't connect to server" });
       }
     } catch (err) {
-      console.tron('error');
+      console.log('error');
       setError({ message: "Couldn't connect to server" });
     }
   };

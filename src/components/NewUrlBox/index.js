@@ -10,7 +10,7 @@ export default function NewUrlBox({ url }) {
   const textPRef = useRef(null);
 
   const copyToClipboard = () => {
-    console.tron('clicking');
+    console.log('clicking');
     textPRef.current.select();
     document.execCommand('copy');
 

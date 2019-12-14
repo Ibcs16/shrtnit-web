@@ -48,7 +48,7 @@ export default function LanguageSelectionModal() {
 
   // const changeTranslation = ln => {
   //   //open language modal
-  //   console.tron(ln);
+  //   console.log(ln);
   //   i18n.changeLanguage(ln);
   // };
 

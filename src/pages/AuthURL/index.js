@@ -9,7 +9,7 @@ export default function AuthURL() {
   useEffect(() => {
     const urlTest = 'https://crush.it/bmw3uV';
     urlTest.split().forEach(char => setUrlString(...urlString, char));
-    console.tron('ai');
+    console.log('ai');
   }, [urlString]);
 
   return (

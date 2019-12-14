@@ -8,7 +8,7 @@ import { Container } from './styles';
 export default function CreatedURLCounter({ numberOfURLs }) {
   const { t, i18n } = useTranslation('en');
 
-  // console.tron(t);
+  // console.log(t);
 
   return (
     <Container className="incomingURLCounter">
