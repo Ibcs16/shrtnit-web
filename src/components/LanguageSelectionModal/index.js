@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { Container } from "./styles";
-import "../../styles/animations.css";
-import { useTranslation } from "react-i18next";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import '../../styles/animations.css';
+
+import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+import { Container } from './styles';
 
 export default function LanguageSelectionModal() {
   const { t, i18n } = useTranslation();
@@ -46,7 +48,7 @@ export default function LanguageSelectionModal() {
 
   // const changeTranslation = ln => {
   //   //open language modal
-  //   console.log(ln);
+  //   console.tron(ln);
   //   i18n.changeLanguage(ln);
   // };
 

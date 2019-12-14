@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { ClickRow, Container } from "./styles";
-import { FaUnlockAlt, FaWpforms } from "react-icons/fa";
+import React from 'react';
+
+import { ClickRow, Container } from './styles';
 
 export default function ClickList({ clicks }) {
   return (

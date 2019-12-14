@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import api from "../../services/api";
-import { Container } from "./styles";
-import "../../styles/animations.css";
+import '../../styles/animations.css';
+
+import React, { useEffect, useState } from 'react';
+
+import api from '../../services/api';
+import { Container } from './styles';
 
 export default function PageNotFound() {
   const [newUrl, setNewUrl] = useState();

@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { CustomInputContainer } from "./styles";
-import "../../styles/animations.css";
-import { IoMdSend, IoMdLock, IoMdUnlock } from "react-icons/io";
+import '../../styles/animations.css';
+
+import React, { useEffect, useState } from 'react';
+import { IoMdLock, IoMdSend, IoMdUnlock } from 'react-icons/io';
+
+import { CustomInputContainer } from './styles';
 
 export default function CustomInput({
   error,
   action: handleSubmitUrl,
   borderRadius,
   haveLeftIcon = false,
-  haveRightIcon = false
+  haveRightIcon = false,
 }) {
   const [newURL, setNewURL] = useState({
-    longUrl: "",
-    isPrivate: false
+    longUrl: '',
+    isPrivate: false,
   });
-  const [errorClass, setErrorClass] = useState("");
+  const [errorClass, setErrorClass] = useState('');
 
   const handleInputChange = e => {
     setNewURL({ ...newURL, longUrl: e.target.value });
@@ -27,11 +29,11 @@ export default function CustomInput({
   useEffect(() => {
     // setErrorClass('nope');
     if (error.message) {
-      setErrorClass("nope");
+      setErrorClass('nope');
     }
 
     const timer = setTimeout(() => {
-      setErrorClass("");
+      setErrorClass('');
     }, 700);
     return () => clearTimeout(timer);
   }, [error]);
@@ -49,8 +51,8 @@ export default function CustomInput({
             <button
               data-tip={
                 !newURL.isPrivate
-                  ? "Make this URL private"
-                  : "Make this URL public"
+                  ? 'Make this URL private'
+                  : 'Make this URL public'
               }
               type="button"
             >
@@ -77,7 +79,7 @@ export default function CustomInput({
           name="longUrl"
           required
           defaultValue=""
-          value={newURL.longUrl || ""}
+          value={newURL.longUrl || ''}
           onChange={handleInputChange}
         />
         <div>

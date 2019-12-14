@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react";
-import { Container } from "./styles";
-import "../../styles/animations.css";
+import '../../styles/animations.css';
+
+import React, { useRef, useState } from 'react';
+
+import { Container } from './styles';
 
 export default function NewUrlBox({ url }) {
   // useEffect({}, [url]);
@@ -8,9 +10,9 @@ export default function NewUrlBox({ url }) {
   const textPRef = useRef(null);
 
   const copyToClipboard = () => {
-    console.log("clicking");
+    console.tron('clicking');
     textPRef.current.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
 
     setCopySuccess(true);
   };
@@ -27,9 +29,9 @@ export default function NewUrlBox({ url }) {
 
       <div className="right">
         <p onClick={handleURLRedirect}>{url.shortUrl}</p>
-        {document.queryCommandSupported("copy") && (
+        {document.queryCommandSupported('copy') && (
           <button
-            className={copySuccess ? "copySuccess" : ""}
+            className={copySuccess ? 'copySuccess' : ''}
             onClick={copyToClipboard}
           >
             Copy
@@ -39,7 +41,7 @@ export default function NewUrlBox({ url }) {
           value={url.shortUrl}
           ref={textPRef}
           name="toCopyUrl"
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
         />
         {copySuccess}
       </div>

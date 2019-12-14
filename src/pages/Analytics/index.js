@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
-import api from "../../services/api";
-import { Container } from "./styles";
-import "../../styles/animations.css";
-import { IoMdArrowBack } from "react-icons/io";
-import { Doughnut, Bar, Line } from "react-chartjs-2";
-import ClicksTable from "./components/ClicksTable";
+import '../../styles/animations.css';
+
+import React, { useEffect, useState } from 'react';
+import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { IoMdArrowBack } from 'react-icons/io';
+
+import api from '../../services/api';
+import ClicksTable from './components/ClicksTable';
+import { Container } from './styles';
 
 export default function Analytics({ history }) {
   const [incomingURLS, setIncomingURLS] = useState({});
   const [data, setData] = useState([]);
   const [url, setUrl] = useState({
-    shortUrl: "https://crush.it/bmw3uV",
+    shortUrl: 'https://crush.it/bmw3uV',
     analytics: {
-      accesses: []
-    }
+      accesses: [],
+    },
   });
 
   useEffect(() => {
@@ -25,22 +27,22 @@ export default function Analytics({ history }) {
       }
     }
     setData({
-      labels: ["1", "2", "3", "4", "5"],
+      labels: ['1', '2', '3', '4', '5'],
       datasets: [
         {
-          label: "Videos",
-          backgroundColor: "rgb(4, 211, 97)",
-          data: [7, 2, 4, 21, 2, 5, 9]
+          label: 'Videos',
+          backgroundColor: 'rgb(4, 211, 97)',
+          data: [7, 2, 4, 21, 2, 5, 9],
         },
         {
-          label: "Views",
-          backgroundColor: "rgb(5, 111, 67)",
-          data: [1, 2, 3, 4, 5, 8, 7]
-        }
-      ]
+          label: 'Views',
+          backgroundColor: 'rgb(5, 111, 67)',
+          data: [1, 2, 3, 4, 5, 8, 7],
+        },
+      ],
     });
 
-    getAnalytics("code");
+    getAnalytics('code');
 
     // getAnalytics(history.getParam("code"));
   }, []);
@@ -72,7 +74,7 @@ export default function Analytics({ history }) {
               data={data}
               options={{
                 responsive: false,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
               }}
               width={600}
               height={200}

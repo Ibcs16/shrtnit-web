@@ -1,15 +1,18 @@
-import React, { useState } from "react";
-import GlobalStyle from "./styles/global";
-import Routes from "./routes";
-import ReactTooltip from "react-tooltip";
-import { MdTranslate } from "react-icons/md";
-import { FaChartBar } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useTranslation } from "react-i18next";
-import LanguageSelectionModal from "./components/LanguageSelectionModal";
+import 'react-toastify/dist/ReactToastify.css';
 // import { I18nextProvider } from "react-i18next";
 // import translation from "./config/translation/translation.js";
+import './config/ReactotronConfig';
+
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaChartBar } from 'react-icons/fa';
+import { MdTranslate } from 'react-icons/md';
+import { toast, ToastContainer } from 'react-toastify';
+import ReactTooltip from 'react-tooltip';
+
+import LanguageSelectionModal from './components/LanguageSelectionModal';
+import Routes from './routes';
+import GlobalStyle from './styles/global';
 
 function App({ history }) {
   const { t, i18n } = useTranslation();
@@ -37,7 +40,7 @@ function App({ history }) {
       animationDelay: `${random(5, 0.1)}s`,
       animationDuration: `${random(24, 12)}`,
       animationTimingFunction: `cubic-bezier(${Math.random()},${Math.random()},${Math.random()},${Math.random()})`,
-      animationIterationCount: "infinite"
+      animationIterationCount: 'infinite',
     };
   }
 
@@ -50,10 +53,10 @@ function App({ history }) {
       {!modalIsOpened && (
         <MdTranslate
           style={{
-            position: "absolute",
-            top: "40px",
-            right: "40px",
-            cursor: "pointer"
+            position: 'absolute',
+            bottom: '40px',
+            right: '40px',
+            cursor: 'pointer',
           }}
           data-tip="Change language"
           size={24}
@@ -68,20 +71,20 @@ function App({ history }) {
       {/* </I18nextProvider> */}
 
       <ul className="squares">
-        <li style={getRandomStyle()}>'dadasdads'</li>
-        <li style={getRandomStyle()}>'dadasdads'</li>
-        <li style={getRandomStyle()}>'dadasdads'</li>
-        <li style={getRandomStyle()}>'dadasdads'</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
 
-        <li style={getRandomStyle()}>'dadasdads'</li>
-        <li style={getRandomStyle()}>'dadasdads'</li>
-        <li style={getRandomStyle()}>'dadasdads'</li>
-        <li style={getRandomStyle()}>'dadasdads'</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
+        <li style={getRandomStyle()}>asdasdasdads</li>
       </ul>
       <ToastContainer
         enableMultiContainer
         autoClose={4000}
-        containerId={"all"}
+        containerId="all"
         position={toast.POSITION.TOP_RIGHT}
       />
     </>

@@ -1,16 +1,18 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { Container } from "./styles";
-import "../../styles/animations.css";
-import { useTranslation } from "react-i18next";
+import '../../styles/animations.css';
+
+import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { Container } from './styles';
 
 export default function CreatedURLCounter({ numberOfURLs }) {
-  const { t, i18n } = useTranslation("en");
+  const { t, i18n } = useTranslation('en');
 
-  // console.log(t);
+  // console.tron(t);
 
   return (
     <Container className="incomingURLCounter">
-      <strong>{numberOfURLs}</strong> {t("shortened")}
+      <strong>{numberOfURLs}</strong> {t('shortened')}
     </Container>
   );
 }

@@ -1,11 +1,11 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from "./pages/Home";
-import PageNotFound from "./pages/PageNotFound";
-import Analytics from "./pages/Analytics";
-import AuthURL from "./pages/AuthURL";
-import Redirection from "./pages/Redirection";
+import Analytics from './pages/Analytics';
+import AuthURL from './pages/AuthURL';
+import Home from './pages/Home';
+import PageNotFound from './pages/PageNotFound';
+import Redirection from './pages/Redirection';
 
 export default function Routes() {
   return (

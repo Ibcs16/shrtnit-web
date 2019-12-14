@@ -1,50 +1,53 @@
-import React, { useState, useEffect, useMemo } from "react";
-import CustomInput from "../../components/CustomInput";
-import api from "../../services/api";
-import { Container } from "./styles";
-import NewUrlBox from "../../components/NewUrlBox";
-import "../../styles/animations.css";
-import CreatedURLCounter from "../../components/CreatedURLCounter";
-import socketio from "socket.io-client";
-import ErrorWarn from "../../components/ErrorWarn";
-import { FaChartBar } from "react-icons/fa";
-import { MdNewReleases } from "react-icons/md";
+import '../../styles/animations.css';
+
+import React, { useEffect, useMemo, useState } from 'react';
+import { FaChartBar } from 'react-icons/fa';
+import { MdNewReleases } from 'react-icons/md';
+import socketio from 'socket.io-client';
+
+import CreatedURLCounter from '../../components/CreatedURLCounter';
+import CustomInput from '../../components/CustomInput';
+import ErrorWarn from '../../components/ErrorWarn';
+import NewUrlBox from '../../components/NewUrlBox';
+import api from '../../services/api';
+import { Container } from './styles';
 
 export default function Home({ history }) {
   const [newUrl, setNewUrl] = useState({
-    shortUrl: "",
-    longUrl: "",
-    isPrivate: false
+    shortUrl: '',
+    longUrl: '',
+    isPrivate: false,
   });
   const [incomingURLs, setIncomingURLS] = useState([]);
-  const [error, setError] = useState({ message: "" });
+  const [error, setError] = useState({ message: '' });
   const goToAnalytics = () => {
-    history.push("/analytics");
+    history.push('/analytics');
   };
-  // const socket = useMemo(() => {
-  //   socketio("http://localhost:3000");
-  // }, []);
 
-  // useEffect(() => {
-  //   // socket.on("created_url", url => {
-  //   //   console.log("criou");
-  //   //   //setIncomingURLS([...incomingURLs, url]);
-  //   // });
-  // }, [socket]);
+  const socket = useMemo(() => {
+    return socketio('http://localhost:3000');
+  }, []);
+
+  useEffect(() => {
+    socket.on('created_url', url => {
+      console.tron('criou');
+      setIncomingURLS([...incomingURLs, url]);
+    });
+  }, [socket, incomingURLs]);
 
   const handleSubmitUrl = async (e, { isPrivate, longUrl }) => {
     e.preventDefault();
-    setNewUrl({ ...newUrl, isPrivate: isPrivate });
+    setNewUrl({ ...newUrl, isPrivate });
 
     try {
-      const res = await api.post("http://localhost:3000/create", {
+      const res = await api.post('https://localhost:3000/create', {
         longUrl,
-        isPrivate
+        isPrivate,
       });
 
       if (res.status === 200) {
         if (res.data.error) {
-          console.log(res.data);
+          console.tron(res.data);
           setError({ message: res.data.message });
           // const timer = setTimeout(() => {
           //   setError({ message: "" });
@@ -53,7 +56,7 @@ export default function Home({ history }) {
           return;
         }
 
-        setError({ message: "" });
+        setError({ message: '' });
 
         const { shortUrl } = res.data;
         setNewUrl({ shortUrl, longUrl });
@@ -65,7 +68,7 @@ export default function Home({ history }) {
         setError({ message: "Couldn't connect to server" });
       }
     } catch (err) {
-      console.log("error");
+      console.tron('error');
       setError({ message: "Couldn't connect to server" });
     }
   };
@@ -75,10 +78,10 @@ export default function Home({ history }) {
       <FaChartBar
         onClick={goToAnalytics}
         style={{
-          position: "absolute",
-          top: "40px",
-          left: "40px",
-          cursor: "pointer"
+          position: 'absolute',
+          top: '40px',
+          left: '40px',
+          cursor: 'pointer',
         }}
         data-tip="Analytics"
         size={24}
@@ -90,8 +93,8 @@ export default function Home({ history }) {
         </h1>
 
         <CustomInput
-          haveRightIcon={true}
-          haveLeftIcon={true}
+          haveRightIcon
+          haveLeftIcon
           borderRadius={30}
           error={error}
           action={handleSubmitUrl}

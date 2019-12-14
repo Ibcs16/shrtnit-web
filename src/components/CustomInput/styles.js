@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CustomInputContainer = styled.form`
-  @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,700|Roboto:300,400,700&display=swap");
+  @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700|Roboto:300,400,700&display=swap');
 
   width: 100%;
   position: relative;
@@ -26,7 +26,7 @@ export const CustomInputContainer = styled.form`
     width: 100%;
     position: relative;
     border: none;
-    font-family: "Nunito", "Roboto", sans-serif;
+    font-family: 'Nunito', 'Roboto', sans-serif;
     color: rgba(0, 0, 0, 0.7);
     background: transparent;
     font-weight: 700;

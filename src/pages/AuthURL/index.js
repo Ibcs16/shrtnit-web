@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { AuthForm } from "./styles";
-import { FaUnlockAlt, FaWpforms } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import { FaUnlockAlt, FaWpforms } from 'react-icons/fa';
+
+import { AuthForm } from './styles';
 
 export default function AuthURL() {
-  const [urlString, setUrlString] = useState("");
+  const [urlString, setUrlString] = useState('');
 
   useEffect(() => {
-    const urlTest = "https://crush.it/bmw3uV";
+    const urlTest = 'https://crush.it/bmw3uV';
     urlTest.split().forEach(char => setUrlString(...urlString, char));
-    console.log("ai");
-  }, []);
+    console.tron('ai');
+  }, [urlString]);
 
   return (
     <AuthForm>
@@ -19,7 +20,7 @@ export default function AuthURL() {
       <input placeholder="Password" type="password" />
       <button type="submit">
         <span>Acessar url</span>
-        <FaUnlockAlt color="#fff" size={14} />{" "}
+        <FaUnlockAlt color="#fff" size={14} />{' '}
       </button>
     </AuthForm>
   );
