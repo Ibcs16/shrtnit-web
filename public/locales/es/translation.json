@@ -6,7 +6,7 @@
   "change-language": "Mudar idioma",
   "english-us": "English-US",
   "spanish-es": "Spanish-ES",
-  "portugues-br": "Portuguese-BR",
+  "portuguese-br": "Portuguese-BR",
   "error": {
     "Couldn't connect to server": "Não foi possível conectar ao servidor",
     "This URL has already been shortened": "Essa URL já foi encurtada",
