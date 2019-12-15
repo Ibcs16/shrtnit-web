@@ -5,5 +5,5 @@ if (process.env.NODE_ENV === 'development') {
 
   tron.clear();
 
-  console.log = tron;
+  console.tron = tron;
 }

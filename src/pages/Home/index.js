@@ -40,7 +40,7 @@ export default function Home({ history }) {
     setNewUrl({ ...newUrl, isPrivate });
 
     try {
-      const res = await api.post('https://localhost:3000/create', {
+      const res = await api.post('http://localhost:3000/create', {
         longUrl,
         isPrivate,
       });
