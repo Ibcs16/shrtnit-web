@@ -1,3 +1,29 @@
 {
-  "CrushedURL": "acortadas desde que entraste aquí"
+  "shortened": "URLs acortadas desde que entraste aquí",
+  "long-url": "https://una-url-grandiooooooooooooooooooooooooooooooooooooosa.com",
+  "make-private": "Make this URL private",
+  "make-public": "Make this URL public",
+  "change-language": "Mudar idioma",
+  "english-us": "English-US",
+  "spanish-es": "Spanish-ES",
+  "portugues-br": "Portuguese-BR",
+  "error": {
+    "Couldn't connect to server": "Não foi possível conectar ao servidor",
+    "This URL has already been shortened": "Essa URL já foi encurtada",
+    "Unable to save this URL":  "Não foi possível gravar essa URL",
+    "Invalid URL": "Essa URL é inválida",
+    "Server error": "Erro no sevidor"
+  },
+  "analytics":{
+    "title": "Analytics",
+    "subtitle": "See how this url reached people around the world",
+    "charts": "Charts",
+    "accesses": "Acessos",
+    "accesses-table-header": {
+      "Browser": "Navegador",
+      "Name": "Nome",
+      "Country": "País",
+      "Date": "Data"
+    }
+  }
 }

@@ -1,4 +1,28 @@
 {
-  "crushed": "crushed since you opened this page",
-  "CrushedURL": "crushed since you opened this page"
+  "shortened": "URLs shortened since you opened this page",
+  "long-url": "https://some-loooooooooooooooooooooooooooooooooooooooonooooog-url.com",
+  "make-private": "Make this URL private",
+  "make-public": "Make this URL public",
+  "change-language": "Change language",
+  "english-us": "English-US",
+  "spanish-es": "Spanish-ES",
+  "portugues-br": "Portuguese-BR",
+  "error": {
+    "This URL has already been shortened": "This URL has already been shortened",
+    "Unable to save this URL":  "Unable to save this URL",
+    "Invalid URL": "Invalid URL",
+    "Server error": "Server error"
+  },
+  "analytics":{
+    "title": "Analytics",
+    "subtitle": "See how this url reached people around the world",
+    "charts": "Charts",
+    "accesses": "Accesses",
+    "accesses-table-header": {
+      "Browser": "Browser",
+      "Name": "Name",
+      "Country": "Country",
+      "Date": "Date"
+    }
+  }
 }
