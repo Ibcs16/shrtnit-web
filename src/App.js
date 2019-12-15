@@ -10,7 +10,7 @@ import { MdTranslate } from 'react-icons/md';
 import { toast, ToastContainer } from 'react-toastify';
 import ReactTooltip from 'react-tooltip';
 
-import LanguageSelectionModal from './components/LanguageSelectionModal';
+import LanguageSelection from './components/LanguageSelection';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
@@ -50,23 +50,8 @@ function App({ history }) {
 
       <ReactTooltip />
 
-      {!modalIsOpened && (
-        <MdTranslate
-          style={{
-            position: 'absolute',
-            bottom: '40px',
-            right: '40px',
-            cursor: 'pointer',
-          }}
-          data-tip={t('translation:change-language')}
-          size={24}
-          onClick={openModal}
-        />
-      )}
+      <LanguageSelection />
 
-      {/* wrap i18 around routes for translation of components texts */}
-      {/* <I18nextProvider i18n={translation}> */}
-      {modalIsOpened && <LanguageSelectionModal />}
       <Routes />
       {/* </I18nextProvider> */}
 
@@ -81,12 +66,12 @@ function App({ history }) {
         <li style={getRandomStyle()}>asdasdasdads</li>
         <li style={getRandomStyle()}>asdasdasdads</li>
       </ul>
-      <ToastContainer
+      {/* <ToastContainer
         enableMultiContainer
         autoClose={4000}
         containerId="all"
         position={toast.POSITION.TOP_RIGHT}
-      />
+      /> */}
     </>
   );
 }
