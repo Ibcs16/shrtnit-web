@@ -56,5 +56,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-undef': 0,
+    'no-unused-expressions': 0
   },
 };
