@@ -12,7 +12,7 @@ export default function CreatedURLCounter({ numberOfURLs }) {
 
   return (
     <Container className="incomingURLCounter">
-      <strong>{numberOfURLs}</strong> {t('shortened')}
+      <strong>{numberOfURLs}</strong> {t('translation:shortened')}
     </Container>
   );
 }

@@ -1,6 +1,7 @@
 import '../../styles/animations.css';
 
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IoMdLock, IoMdSend, IoMdUnlock } from 'react-icons/io';
 
 import { CustomInputContainer } from './styles';
@@ -12,6 +13,8 @@ export default function CustomInput({
   haveLeftIcon = false,
   haveRightIcon = false,
 }) {
+  const { t, i18n } = useTranslation();
+
   const [newURL, setNewURL] = useState({
     longUrl: '',
     isPrivate: false,
@@ -51,8 +54,8 @@ export default function CustomInput({
             <button
               data-tip={
                 !newURL.isPrivate
-                  ? 'Make this URL private'
-                  : 'Make this URL public'
+                  ? t('translation:make-private')
+                  : t('translation:make-public')
               }
               type="button"
             >
@@ -74,7 +77,7 @@ export default function CustomInput({
           )}
         </div>
         <input
-          placeholder="https://some-looooooooooooooooong-url.com"
+          placeholder={t('translation:long-url')}
           type="url"
           name="longUrl"
           required

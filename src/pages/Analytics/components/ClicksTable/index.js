@@ -1,16 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ClickRow, Container } from './styles';
 
 export default function ClickList({ clicks }) {
+  const [t, i18n] = useTranslation();
   return (
     <Container>
       <thead>
         <tr>
           <th>IP</th>
-          <th>Country</th>
-          <th>Browser</th>
-          <th>Date</th>
+          <th>{t('translation:analytics.accesses-table-header.Country')}</th>
+          <th>{t('translation:analytics.accesses-table-header.Browser')}</th>
+          <th>{t('translation:analytics.accesses-table-header.Date')}</th>
         </tr>
       </thead>
       <tbody>

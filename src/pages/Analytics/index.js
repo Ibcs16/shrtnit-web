@@ -2,6 +2,7 @@ import '../../styles/animations.css';
 
 import React, { useEffect, useState } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
 import { IoMdArrowBack } from 'react-icons/io';
 
 import api from '../../services/api';
@@ -9,6 +10,7 @@ import ClicksTable from './components/ClicksTable';
 import { Container } from './styles';
 
 export default function Analytics({ history }) {
+  const [t, i18n] = useTranslation();
   const [incomingURLS, setIncomingURLS] = useState({});
   const [data, setData] = useState([]);
   const [url, setUrl] = useState({
@@ -55,19 +57,17 @@ export default function Analytics({ history }) {
           <h1>{url.shortUrl}</h1>
         </div>
         <div>
-          <h2>
-            crush<strong>.it</strong>
-          </h2>
+          <h2>{/* crush<strong>.it</strong> */}</h2>
         </div>
       </header>
       <main>
         <div>
-          <h1>Analytics</h1>
+          <h1>{t('translation:analytics.title')}</h1>
           <span />
-          <p>See how this url reached people around the world</p>
+          <p>{t('translation:analytics.subtitle')}</p>
         </div>
         <section id="charts">
-          <h1>Charts</h1>
+          <h1>{t('translation:analytics.charts')}</h1>
 
           <div>
             <Line
@@ -90,7 +90,7 @@ export default function Analytics({ history }) {
           </div>
         </section>
         <section id="clicks">
-          <h1>Accesses</h1>
+          <h1>{t('translation:analytics.accesses')}</h1>
           <ClicksTable clicks={url.analytics.accesses} />
         </section>
       </main>

@@ -58,7 +58,7 @@ function App({ history }) {
             right: '40px',
             cursor: 'pointer',
           }}
-          data-tip="Change language"
+          data-tip={t('translation:change-language')}
           size={24}
           onClick={openModal}
         />

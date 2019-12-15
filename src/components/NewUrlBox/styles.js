@@ -24,11 +24,11 @@ export const Container = styled.div`
   }
 
   .left {
-    flex: 1;
+    flex: 50%;
     p {
       text-overflow: ellipsis;
       width: 100%;
-      max-width: 16rem;
+      max-width: 20rem;
       white-space: nowrap;
       overflow: hidden;
       color: rgba(0, 0, 0, 0.6);
