@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-export const Container = styled.main`
+export const Container = styled(animated.main)`
   margin: 10% auto;
   display: flex;
   max-width: 100%;
@@ -8,8 +9,8 @@ export const Container = styled.main`
   justify-content: stretch;
   flex-direction: column;
   align-items: center;
-  animation-name: fade-in;
-  animation-duration: 709ms;
+  /* animation-name: fade-in;
+  animation-duration: 709ms; */
 
   h1 {
     font-size: 62px;
