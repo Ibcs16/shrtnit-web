@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 
 import { Container } from './styles';
 
-export default function NewUrlBox({ url }) {
+export default function NewUrlBox({ url, fadeAnimation }) {
   // useEffect({}, [url]);
   const [copySuccess, setCopySuccess] = useState(false);
   const textPRef = useRef(null);
@@ -22,8 +22,8 @@ export default function NewUrlBox({ url }) {
   };
 
   return (
-    <Container>
-      <div className="left">
+    <Container style={fadeAnimation}>
+      <div data-tip={url.longUrl} className="left">
         <p onClick={handleURLRedirect}>{url.longUrl}</p>
       </div>
 

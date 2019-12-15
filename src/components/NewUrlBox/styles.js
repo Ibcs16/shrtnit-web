@@ -1,6 +1,7 @@
+import { animated } from 'react-spring';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled(animated.div)`
   position: relative;
   min-height: 60px;
   width: 100%;
@@ -16,7 +17,7 @@ export const Container = styled.div`
   margin-top: 40px;
   border-radius: 4px;
   padding: 10px;
-  animation: expand 3s;
+  /* animation: expand 3s; */
   overflow: hidden;
 
   p {

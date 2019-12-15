@@ -3,6 +3,7 @@ import '../../styles/animations.css';
 import React, { useEffect, useMemo, useState } from 'react';
 import { FaChartBar } from 'react-icons/fa';
 import { MdNewReleases } from 'react-icons/md';
+import { useSpring } from 'react-spring';
 import socketio from 'socket.io-client';
 
 import CreatedURLCounter from '../../components/CreatedURLCounter';
@@ -11,29 +12,26 @@ import ErrorWarn from '../../components/ErrorWarn';
 import NewUrlBox from '../../components/NewUrlBox';
 import api from '../../services/api';
 import { Container } from './styles';
-import { useSpring } from 'react-spring';
 
 export default function Home({ history }) {
-
-  //created url
+  // created url
   const [newUrl, setNewUrl] = useState({
     shortUrl: '',
     longUrl: '',
     isPrivate: false,
   });
 
-
-  //newly created urls notifications from socketio
+  // newly created urls notifications from socketio
   const [incomingURLs, setIncomingURLS] = useState([]);
 
-  //errors from http request
+  // errors from http request
   const [error, setError] = useState({ message: '' });
 
   // Prop for fade-in and expand for main container
   const propsSpringMainContainer = useSpring({
     from: {
       opacity: 0,
-      transform:'scale(0)',
+      transform: 'scale(0)',
     },
     to: {
       opacity: 1,
@@ -41,12 +39,18 @@ export default function Home({ history }) {
     },
     config: {
       duration: 800,
-    }
+    },
   });
 
   // Props for fade-in/out animations using react-spring, based on states
-  const propsSpringErrorBox = useSpring({opacity: error.message ? 1 : 0, duration: 800});
-  const propsSpringNewUrlBox = useSpring({opacity: newUrl.longUrl ? 1 : 0, duration: 800});
+  const propsSpringErrorBox = useSpring({
+    opacity: error.message ? 1 : 0,
+    duration: 800,
+  });
+  const propsSpringNewUrlBox = useSpring({
+    opacity: newUrl.longUrl ? 1 : 0,
+    duration: 800,
+  });
 
   const goToAnalytics = () => {
     history.push('/analytics');
@@ -128,8 +132,15 @@ export default function Home({ history }) {
           action={handleSubmitUrl}
         />
         {newUrl.isPrivate && <NewUrlBox url={newUrl} />}
-        {error.message && <ErrorWarn fadeAnimation={propsSpringErrorBox} message={error.message} />}
-        {newUrl.shortUrl && <NewUrlBox fadeAnimation={propsSpringNewUrlBox} url={newUrl} />}
+        {error.message && (
+          <ErrorWarn
+            fadeAnimation={propsSpringErrorBox}
+            message={error.message}
+          />
+        )}
+        {newUrl.shortUrl && (
+          <NewUrlBox fadeAnimation={propsSpringNewUrlBox} url={newUrl} />
+        )}
         {/* <button onClick={goToAnalytics}>PageNotFound></button> */}
         <CreatedURLCounter numberOfURLs={incomingURLs.length} />
       </Container>
