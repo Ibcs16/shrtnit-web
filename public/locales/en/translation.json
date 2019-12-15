@@ -8,6 +8,7 @@
   "spanish-es": "Spanish-ES",
   "portugues-br": "Portuguese-BR",
   "error": {
+    "Couldn't connect to server": "Couldn't connect to server",
     "This URL has already been shortened": "This URL has already been shortened",
     "Unable to save this URL":  "Unable to save this URL",
     "Invalid URL": "Invalid URL",
