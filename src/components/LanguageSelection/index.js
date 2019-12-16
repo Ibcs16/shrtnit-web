@@ -17,19 +17,11 @@ export default function LanguageSelection() {
   const [languages, setLanguages] = useState([]);
 
   // translation box display state
-  const [tBoxIsOpened, setTBoxIsOpened] = useState(false);
+  const [tBoxIsOpened, setTBoxIsOpened] = useState(true);
   // translation box animation
   const [props, set, stop] = useSpring(() => ({
-    from: {
-      transform: !tBoxIsOpened ? 'scale(0)' : 'scale(1)',
-    },
     to: {
-      transform: !tBoxIsOpened ? 'scale(1)' : 'scale(0)',
-      opacity: 0,
-      display: !tBoxIsOpened ? 'block' : 'none',
-    },
-    config: {
-      duration: 300,
+      display: 'none',
     },
   }));
 
@@ -64,17 +56,18 @@ export default function LanguageSelection() {
     console.log('mudou', tBoxIsOpened);
     set({
       from: {
-        transform: !tBoxIsOpened ? 'scale(0)' : 'scale(1)',
+        transform: tBoxIsOpened ? 'scale(0)' : 'scale(1)',
       },
       to: {
-        transform: !tBoxIsOpened ? 'scale(1)' : 'scale(0)',
-        opacity: 0,
-        display: !tBoxIsOpened ? 'block' : 'none',
+        transform: tBoxIsOpened ? 'scale(1)' : 'scale(0)',
+        display: tBoxIsOpened ? 'block' : 'none',
+        opacity: tBoxIsOpened ? 1 : 0,
       },
       config: {
-        duration: 300,
+        duration: 200,
       },
     });
+    stop();
 
     setTBoxIsOpened(!tBoxIsOpened);
   };

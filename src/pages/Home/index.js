@@ -19,7 +19,11 @@ export default function Home({ history }) {
     shortUrl: '',
     longUrl: '',
     isPrivate: false,
+    accessKey: '',
+    expirationDateTime: '',
   });
+
+  const [shouldExpandOptions, setShouldExpandOptions] = useState(false);
 
   // newly created urls notifications from socketio
   const [incomingURLs, setIncomingURLS] = useState([]);
@@ -67,14 +71,25 @@ export default function Home({ history }) {
     });
   }, [socket, incomingURLs]);
 
-  const handleSubmitUrl = async (e, { isPrivate, longUrl }) => {
+  const handleSubmitUrl = async (
+    e,
+    { isPrivate, longUrl, accessKey, expirationDateTime }
+  ) => {
+    isPrivate = isPrivate !== false;
     e.preventDefault();
-    setNewUrl({ ...newUrl, isPrivate });
+    setNewUrl({
+      ...newUrl,
+      isPrivate,
+      accessKey,
+      expirationDateTime,
+    });
 
     try {
       const res = await api.post('http://localhost:3000/create', {
-        longUrl,
         isPrivate,
+        accessKey,
+        expirationDateTime,
+        longUrl,
       });
 
       if (res.status === 200) {
@@ -105,6 +120,10 @@ export default function Home({ history }) {
     }
   };
 
+  const toggleOptions = toggle => {
+    setShouldExpandOptions(toggle);
+  };
+
   return (
     <>
       <FaChartBar
@@ -130,6 +149,8 @@ export default function Home({ history }) {
           borderRadius={30}
           error={error}
           action={handleSubmitUrl}
+          toggleOptions={toggleOptions}
+          isExpandedOptions={shouldExpandOptions}
         />
         {newUrl.isPrivate && <NewUrlBox url={newUrl} />}
         {error.message && (

@@ -19,7 +19,6 @@ export const Badge = styled.button`
 
 export const TranslationBox = styled(animated.div)`
   position: absolute;
-  display: none;
   width: 260px;
   right: calc(100% - 30px);
   bottom: calc(100% + 10px);

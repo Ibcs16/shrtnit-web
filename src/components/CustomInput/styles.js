@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CustomInputContainer = styled.form`
   @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700|Roboto:300,400,700&display=swap');
-
+  z-index: 9999;
   width: 100%;
   position: relative;
   background: #fff;
