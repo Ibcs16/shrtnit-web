@@ -12,7 +12,8 @@
     "This URL has already been shortened": "This URL has already been shortened",
     "Unable to save this URL":  "Unable to save this URL",
     "Invalid URL": "Invalid URL",
-    "Server error": "Server error"
+    "Server error": "Server error",
+    "Access key does not match": "Access key does not match"
   },
   "analytics":{
     "title": "Analytics",
@@ -25,5 +26,11 @@
       "Country": "Country",
       "Date": "Date"
     }
+  },
+  "auth": {
+    "title": "Authenticate to access URL",
+    "name": "Name (optional)",
+    "password": "Password",
+    "access": "Access URL"
   }
 }
