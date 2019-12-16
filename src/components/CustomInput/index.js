@@ -33,10 +33,10 @@ export default function CustomInput({
     console.log('mudou', expandOptions);
     set({
       from: {
-        transform: expandOptions ? 'scale(0)' : 'scale(1)',
+        height: expandOptions ? '0px' : '100px',
       },
       to: {
-        transform: expandOptions ? 'scale(1)' : 'scale(0)',
+        height: expandOptions ? '100px' : '0px',
         display: expandOptions ? 'block' : 'none',
         opacity: expandOptions ? 1 : 0,
       },
