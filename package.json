@@ -30,6 +30,8 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.19.1",
@@ -49,7 +51,14 @@
     "eject": "react-scripts eject"
   },
   "config-overrides-path": "./config-overrides.js",
-  "jest": {},
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)": "<rootDir>/src/$1"
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
