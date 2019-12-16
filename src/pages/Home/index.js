@@ -85,7 +85,7 @@ export default function Home({ history }) {
     });
 
     try {
-      const res = await api.post('http://localhost:3000/create', {
+      const res = await api.post(`${process.env.REACT_APP_API_URL}/create`, {
         isPrivate,
         accessKey,
         expirationDateTime,

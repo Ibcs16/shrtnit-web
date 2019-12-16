@@ -22,7 +22,7 @@ export default function Analytics({ history }) {
 
   useEffect(() => {
     async function getAnalytics(code) {
-      const res = await api.get(`http://localhost:3333/analytics/${code}`);
+      const res = await api.get(`${process.env.API_URL}/analytics/${code}`);
 
       if (res.status === 200) {
         setData(res.data);

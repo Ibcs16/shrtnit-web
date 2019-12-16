@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaChartBar } from 'react-icons/fa';
 import { MdTranslate } from 'react-icons/md';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast,ToastContainer } from 'react-toastify';
 import ReactTooltip from 'react-tooltip';
 
 import LanguageSelection from './components/LanguageSelection';
