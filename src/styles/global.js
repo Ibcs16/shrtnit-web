@@ -12,6 +12,7 @@ export default createGlobalStyle`
 
   body {
     overflow: hidden;
+    overflow-y: auto;
     padding: 20px;
 
   }
