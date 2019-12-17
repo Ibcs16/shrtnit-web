@@ -36,7 +36,8 @@
       "code": "código",
       "valid": "Use a valid code",
       "needed": "No code to search"
-    }
+    },
+    "noAccesses": "Nenhum dado para mostrar, ainda..."
   },
   "auth": {
     "title": "Se autentique para acessar a URL",

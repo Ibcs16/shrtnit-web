@@ -37,6 +37,7 @@
       "valid": "Use a valid code",
       "needed": "No code to search"
     },
+    "noAccesses": "No hay datos a presentar ahora...",
     "format": {
       "date": "yyyy-MM-dd"
     }

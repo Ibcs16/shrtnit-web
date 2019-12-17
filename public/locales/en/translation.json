@@ -36,7 +36,8 @@
       "code": "code",
       "valid": "Use a valid code",
       "needed": "No code to search"
-    }
+    },
+    "noAccesses": "No data to display yet..."
   },
   "auth": {
     "title": "Authenticate to access URL",
