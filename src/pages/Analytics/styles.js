@@ -34,12 +34,12 @@ export const Container = styled.main`
     margin-left: calc(32px + 40px);
     margin-top: 1rem;
 
-    div:first-child {
+    & > div:first-child {
       display: flex;
       align-items: center;
       align-content: center;
 
-      span {
+      & > span {
         margin-left: 1rem;
         margin-right: 1rem;
         width: 1px;
@@ -56,7 +56,7 @@ export const Container = styled.main`
     #charts {
       margin-top: 2rem;
 
-      div {
+      & > div {
         margin-top: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -72,6 +72,18 @@ export const Container = styled.main`
     }
   }
 
+  @media (max-width: 768px) {
+    header {
+      display: none;
+    }
+
+    table {
+      thead {
+        display: none;
+      }
+    }
+  }
+
   @media (max-width: 1208px) {
     header {
       display: none;
@@ -79,10 +91,10 @@ export const Container = styled.main`
 
     main {
       margin: 0;
-      div:first-child {
+      & > div:first-child {
         flex-direction: column;
 
-        span {
+        & > span {
           width: 1rem;
           height: 1px;
           margin: 1em;

@@ -1,9 +1,14 @@
 import React from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
+
+import { Container } from './styles';
 
 // import { Container } from './styles';
 
 export default function Dashboard({ clicks }) {
+  const [t, i18n] = useTranslation();
+
   const chrome = clicks.reduce((accumulator, click) => {
     return click.browser === 'Chrome' ? accumulator + 1 : accumulator;
   }, 0);
@@ -19,6 +24,8 @@ export default function Dashboard({ clicks }) {
   const others = clicks.reduce((accumulator, click) => {
     return click.browser === '' ? accumulator + 1 : accumulator;
   }, 0);
+
+  clicks = [];
 
   const data = {
     labels: ['1', '2', '3', '4', '5'],
@@ -53,17 +60,34 @@ export default function Dashboard({ clicks }) {
 
   return (
     <>
-      <div>
-        <Line
-          data={data}
-          options={{
-            responsive: false,
-            maintainAspectRatio: false,
-          }}
-          width={600}
-          height={200}
-        />
-        <Doughnut
+      <Container>
+        {clicks.length > 0 ? (
+          <>
+            <Line
+              data={data}
+              options={{
+                responsive: false,
+                maintainAspectRatio: false,
+              }}
+              width={600}
+              height={200}
+            />
+            <Doughnut
+              data={dataBrowsers}
+              options={{
+                responsive: false,
+                maintainAspectRatio: false,
+              }}
+              width={300}
+              height={200}
+            />
+          </>
+        ) : (
+          <div className="noAccesses">
+            <span>{t('translation:analytics.noAccesses')}</span>
+          </div>
+        )}
+        {/* <Bar
           data={dataBrowsers}
           options={{
             responsive: false,
@@ -71,16 +95,7 @@ export default function Dashboard({ clicks }) {
           }}
           width={300}
           height={200}
-        />
-        <Bar
-          data={dataBrowsers}
-          options={{
-            responsive: false,
-            maintainAspectRatio: false,
-          }}
-          width={300}
-          height={200}
-        />
+        /> */}
         {/* <Line
               data={[]}
               options={{ responsive: true, maintainAspectRatio: false }}
@@ -89,7 +104,7 @@ export default function Dashboard({ clicks }) {
               data={[]}
               options={{ responsive: true, maintainAspectRatio: false }}
             /> */}
-      </div>
+      </Container>
     </>
   );
 }
