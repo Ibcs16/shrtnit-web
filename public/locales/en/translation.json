@@ -4,18 +4,19 @@
   "make-private": "Make this URL private",
   "make-public": "Make this URL public",
   "change-language": "Change language",
+  "close-language": "Close",
   "english-us": "English-US",
   "spanish-es": "Spanish-ES",
   "portuguese-br": "Portuguese-BR",
   "error": {
     "Couldn't connect to server": "Couldn't connect to server",
     "This URL has already been shortened": "This URL has already been shortened",
-    "Unable to save this URL":  "Unable to save this URL",
+    "Unable to save this URL": "Unable to save this URL",
     "Invalid URL": "Invalid URL",
     "Server error": "Server error",
     "Access key does not match": "Access key does not match"
   },
-  "analytics":{
+  "analytics": {
     "title": "Analytics",
     "subtitle": "See how this url reached people around the world",
     "charts": "Charts",
@@ -28,6 +29,13 @@
     },
     "accesses-table-content": {
       "Unknown": "Unknown"
+    },
+    "modal": {
+      "placeholder": "Code",
+      "paste": "Example: shrnt-it.com/",
+      "code": "code",
+      "valid": "Use a valid code",
+      "needed": "No code to search"
     }
   },
   "auth": {

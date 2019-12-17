@@ -4,18 +4,19 @@
   "make-private": "Tornar url privada",
   "make-public": "Tornar url pública",
   "change-language": "Mudar idioma",
+  "close-language": "Fechar",
   "english-us": "Inglês-EUA",
   "spanish-es": "Espanhol-ES",
   "portuguese-br": "Português-BR",
   "error": {
     "Couldn't connect to server": "Não foi possível conectar ao servidor",
     "This URL has already been shortened": "Essa URL já foi encurtada",
-    "Unable to save this URL":  "Não foi possível gravar essa URL",
+    "Unable to save this URL": "Não foi possível gravar essa URL",
     "Invalid URL": "Essa URL é inválida",
     "Server error": "Erro no sevidor",
     "Access key does not match": "Chave de acesso incorreta"
   },
-  "analytics":{
+  "analytics": {
     "title": "Análises",
     "subtitle": "Veja quantas pessoas essa URL alcançou, ao redor do mundo",
     "charts": "Gráficos",
@@ -28,6 +29,13 @@
     },
     "accesses-table-content": {
       "Unknown": "Desconhecido"
+    },
+    "modal": {
+      "placeholder": "Código",
+      "paste": "Exemplo: shrnt-it/",
+      "code": "código",
+      "valid": "Use a valid code",
+      "needed": "No code to search"
     }
   },
   "auth": {
