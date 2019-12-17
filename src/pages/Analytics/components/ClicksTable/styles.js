@@ -1,3 +1,4 @@
+import { darken, lighten } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.table`
@@ -35,7 +36,7 @@ export const ClickRow = styled.tr`
   transition: background 0.2s ease 0s;
 
   &:hover {
-    background: rgb(29, 28, 36);
+    background: ${lighten(0.03, 'rgb(29, 28, 36)')};
   }
 
   td {
