@@ -27,7 +27,7 @@ export default function ClickList({ clicks }) {
             <td>{item.ip}</td>
             <td>{item.country}</td>
             <td>{item.browser}</td>
-            <td>{format(item.date, t('translation:format.date'))}</td>
+            <td>{format(new Date(item.date), t('translation:format.date'))}</td>
           </ClickRow>
         ))}
       </tbody>

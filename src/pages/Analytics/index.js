@@ -13,7 +13,6 @@ import { Container } from './styles';
 export default function Analytics({ history }) {
   // console.log(history);
   const [_, __, code] = history.location.pathname.split('/');
-  console.log(code);
 
   const [t, i18n] = useTranslation();
   const [incomingURLS, setIncomingURLS] = useState({});
@@ -22,48 +21,48 @@ export default function Analytics({ history }) {
     shortUrl: `${process.env.REACT_APP_BASE_URL}/${code}`,
     analytics: {
       accesses: [
-        {
-          ip: '123.123',
-          name: '',
-          browser: 'Chrome',
-          country: 'Brazil',
-          date: Date.now(),
-        },
-        {
-          ip: '222.555',
-          name: 'duda',
-          browser: 'Mozilla',
-          country: 'Portugal',
-          date: Date.now(),
-        },
-        {
-          ip: '123.123',
-          name: '',
-          browser: 'Chrome',
-          country: 'Brazil',
-          date: Date.now(),
-        },
-        {
-          ip: '222.555',
-          name: 'duda',
-          browser: 'Safari',
-          country: 'Portugal',
-          date: Date.now(),
-        },
-        {
-          ip: '123.123',
-          name: '',
-          browser: 'Safari',
-          country: 'Brazil',
-          date: Date.now(),
-        },
-        {
-          ip: '222.555',
-          name: 'duda',
-          browser: '',
-          country: 'Portugal',
-          date: Date.now(),
-        },
+        // {
+        //   ip: '123.123',
+        //   name: '',
+        //   browser: 'Chrome',
+        //   country: 'Brazil',
+        //   date: Date.now(),
+        // },
+        // {
+        //   ip: '222.555',
+        //   name: 'duda',
+        //   browser: 'Mozilla',
+        //   country: 'Portugal',
+        //   date: Date.now(),
+        // },
+        // {
+        //   ip: '123.123',
+        //   name: '',
+        //   browser: 'Chrome',
+        //   country: 'Brazil',
+        //   date: Date.now(),
+        // },
+        // {
+        //   ip: '222.555',
+        //   name: 'duda',
+        //   browser: 'Safari',
+        //   country: 'Portugal',
+        //   date: Date.now(),
+        // },
+        // {
+        //   ip: '123.123',
+        //   name: '',
+        //   browser: 'Safari',
+        //   country: 'Brazil',
+        //   date: Date.now(),
+        // },
+        // {
+        //   ip: '222.555',
+        //   name: 'duda',
+        //   browser: '',
+        //   country: 'Portugal',
+        //   date: Date.now(),
+        // },
       ],
     },
   });
@@ -75,30 +74,14 @@ export default function Analytics({ history }) {
       );
 
       if (res.status === 200) {
-        setUrl({ ...url, ...res.data, analytics: url.analytics });
+        setUrl({ ...res.data });
       }
     }
-
-    // setData({
-    //   labels: ['1', '2', '3', '4', '5'],
-    //   datasets: [
-    //     {
-    //       label: 'Videos',
-    //       backgroundColor: 'rgb(4, 211, 97)',
-    //       data: [7, 2, 4, 21, 2, 5, 9],
-    //     },
-    //     {
-    //       label: 'Views',
-    //       backgroundColor: 'rgb(5, 111, 67)',
-    //       data: [1, 2, 3, 4, 5, 8, 7],
-    //     },
-    //   ],
-    // });
 
     getAnalytics(code);
 
     // getAnalytics(history.getParam("code"));
-  }, [code, url]);
+  }, [code]);
 
   return (
     <Container>

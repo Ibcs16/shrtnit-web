@@ -25,7 +25,7 @@ export default function Dashboard({ clicks }) {
     return click.browser === '' ? accumulator + 1 : accumulator;
   }, 0);
 
-  clicks = [];
+  // clicks = [];
 
   const data = {
     labels: ['1', '2', '3', '4', '5'],
