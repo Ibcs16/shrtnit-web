@@ -1,6 +1,7 @@
 import '../../styles/animations.css';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaChartBar } from 'react-icons/fa';
 import { MdNewReleases } from 'react-icons/md';
 import { useSpring } from 'react-spring';
@@ -9,19 +10,28 @@ import socketio from 'socket.io-client';
 import CreatedURLCounter from '../../components/CreatedURLCounter';
 import CustomInput from '../../components/CustomInput';
 import ErrorWarn from '../../components/ErrorWarn';
+import Modal from '../../components/GoToAnalyticsModal';
 import NewUrlBox from '../../components/NewUrlBox';
+import useModal from '../../hooks/modal';
 import api from '../../services/api';
 import { Container } from './styles';
 
 export default function Home({ history }) {
+  const [t, i18next] = useTranslation();
+
+  const { isShowing, toggle } = useModal();
+
   // created url
   const [newUrl, setNewUrl] = useState({
     shortUrl: '',
     longUrl: '',
-    isPrivate: false,
     accessKey: '',
     expirationDateTime: '',
   });
+
+  const isPrivate = useMemo(() => newUrl.accessKey.length > 0, [
+    newUrl.accessKey.length,
+  ]);
 
   const [shouldExpandOptions, setShouldExpandOptions] = useState(false);
 
@@ -56,12 +66,12 @@ export default function Home({ history }) {
     duration: 800,
   });
 
-  const goToAnalytics = () => {
-    history.push('/analytics');
+  const goToAnalytics = code => {
+    history.push(`/analytics/${code}`);
   };
 
   const socket = useMemo(() => {
-    return socketio('http://localhost:3000');
+    return socketio(`${process.env.REACT_APP_API_URL}`);
   }, []);
 
   useEffect(() => {
@@ -73,13 +83,11 @@ export default function Home({ history }) {
 
   const handleSubmitUrl = async (
     e,
-    { isPrivate, longUrl, accessKey, expirationDateTime }
+    { longUrl, accessKey, expirationDateTime }
   ) => {
-    isPrivate = isPrivate !== false;
     e.preventDefault();
     setNewUrl({
       ...newUrl,
-      isPrivate,
       accessKey,
       expirationDateTime,
     });
@@ -120,21 +128,22 @@ export default function Home({ history }) {
     }
   };
 
-  const toggleOptions = toggle => {
-    setShouldExpandOptions(toggle);
-  };
+  // const toggleOptions = toggle => {
+  //   setShouldExpandOptions(toggle);
+  // };
 
   return (
     <>
       <FaChartBar
-        onClick={goToAnalytics}
+        onClick={toggle}
         style={{
           position: 'absolute',
           top: '40px',
           left: '40px',
           cursor: 'pointer',
+          zIndex: '3',
         }}
-        data-tip="Analytics"
+        data-tip={t('translation:analytics.title')}
         size={24}
       />
       <Container style={propsSpringMainContainer}>
@@ -149,10 +158,9 @@ export default function Home({ history }) {
           borderRadius={30}
           error={error}
           action={handleSubmitUrl}
-          toggleOptions={toggleOptions}
           isExpandedOptions={shouldExpandOptions}
         />
-        {newUrl.isPrivate && <NewUrlBox url={newUrl} />}
+        {newUrl.shortUrl && <NewUrlBox url={newUrl} />}
         {error.message && (
           <ErrorWarn
             fadeAnimation={propsSpringErrorBox}
@@ -165,6 +173,12 @@ export default function Home({ history }) {
         {/* <button onClick={goToAnalytics}>PageNotFound></button> */}
         <CreatedURLCounter numberOfURLs={incomingURLs.length} />
       </Container>
+      <Modal
+        history={history}
+        goToAnalytics={goToAnalytics}
+        isShowing={isShowing}
+        hide={toggle}
+      />
     </>
   );
 }

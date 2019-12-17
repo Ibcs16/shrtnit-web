@@ -2,7 +2,8 @@ import { animated } from 'react-spring';
 import styled from 'styled-components';
 
 export const Container = styled(animated.main)`
-  margin: 10% auto;
+  margin: 0 auto;
+  padding-top: 10%;
   display: flex;
   max-width: 100%;
   width: 700px;
