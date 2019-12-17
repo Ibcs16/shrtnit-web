@@ -4,6 +4,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   color: rgb(79, 79, 79);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -38,6 +44,10 @@ export const Container = styled.div`
     max-width: 415px;
     padding: 2rem;
     border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 30%;
   }
 
   .modal-header {
