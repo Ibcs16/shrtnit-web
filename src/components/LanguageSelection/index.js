@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Badge, Container, Language, TranslationBox } from './styles';
 import {
+  MdClose,
   MdRadioButtonChecked,
   MdRadioButtonUnchecked,
   MdTranslate,
 } from 'react-icons/md';
-import { useSpring } from 'react-spring';
+import React, { useEffect, useState } from 'react';
 
-import { Badge, Container, Language, TranslationBox } from './styles';
+import { useSpring } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 export default function LanguageSelection() {
   // translation
@@ -17,7 +18,7 @@ export default function LanguageSelection() {
   const [languages, setLanguages] = useState([]);
 
   // translation box display state
-  const [tBoxIsOpened, setTBoxIsOpened] = useState(true);
+  const [tBoxIsClosed, settBoxIsClosed] = useState(true);
   // translation box animation
   const [props, set, stop] = useSpring(() => ({
     to: {
@@ -53,15 +54,14 @@ export default function LanguageSelection() {
   // opens or close the box based on last state
 
   const toggleTBox = () => {
-    console.log('mudou', tBoxIsOpened);
     set({
       from: {
-        transform: tBoxIsOpened ? 'scale(0)' : 'scale(1)',
+        transform: tBoxIsClosed ? 'scale(0)' : 'scale(1)',
       },
       to: {
-        transform: tBoxIsOpened ? 'scale(1)' : 'scale(0)',
-        display: tBoxIsOpened ? 'block' : 'none',
-        opacity: tBoxIsOpened ? 1 : 0,
+        transform: tBoxIsClosed ? 'scale(1)' : 'scale(0)',
+        display: tBoxIsClosed ? 'block' : 'none',
+        opacity: tBoxIsClosed ? 1 : 0,
       },
       config: {
         duration: 200,
@@ -69,15 +69,16 @@ export default function LanguageSelection() {
     });
     stop();
 
-    setTBoxIsOpened(!tBoxIsOpened);
+    settBoxIsClosed(!tBoxIsClosed);
   };
 
   return (
     <div
       style={{
-        position: 'absolute',
+        position: 'fixed',
         bottom: '40px',
         right: '40px',
+        zIndex: '9999',
       }}
     >
       <Container>
@@ -100,12 +101,21 @@ export default function LanguageSelection() {
           ))}
         </TranslationBox>
         <Badge>
-          <MdTranslate
-            data-tip={t('translation:change-language')}
-            size={24}
-            color="#fff"
-            onClick={toggleTBox}
-          />
+          {tBoxIsClosed ? (
+            <MdTranslate
+              data-tip={t('translation:change-language')}
+              size={24}
+              color="#fff"
+              onClick={toggleTBox}
+            />
+          ) : (
+            <MdClose
+              data-tip={t('translation:close-language')}
+              size={24}
+              color="#fff"
+              onClick={toggleTBox}
+            />
+          )}
         </Badge>
       </Container>
     </div>

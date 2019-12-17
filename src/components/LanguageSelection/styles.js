@@ -25,6 +25,7 @@ export const TranslationBox = styled(animated.div)`
   background: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   padding: 20px;
+  z-index: 99999;
 
   &::before {
     content: '';
