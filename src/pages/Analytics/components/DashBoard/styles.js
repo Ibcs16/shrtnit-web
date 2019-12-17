@@ -4,7 +4,7 @@ export const Container = styled.div`
   margin-bottom: 1rem;
 
   .noAccesses {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     grid-column: 1 / 3;
     grid-row: 1 / 3;
