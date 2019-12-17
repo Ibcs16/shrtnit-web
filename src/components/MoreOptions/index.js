@@ -17,7 +17,9 @@ export default function MoreOptions({
   const [t, i18next] = useTranslation();
 
   return (
-    <animated.div style={{ ...expandProps, width: '100%' }}>
+    <animated.div
+      style={{ ...expandProps, width: '100%', marginBottom: '8px' }}
+    >
       <Container>
         <UrlOption>
           <div>
