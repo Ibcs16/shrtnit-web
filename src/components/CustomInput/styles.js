@@ -31,6 +31,10 @@ export const CustomInputContainer = styled.form`
     background: transparent;
     font-weight: 700;
     height: 100%;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+    }
   }
 
   div {
