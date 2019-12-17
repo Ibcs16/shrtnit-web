@@ -86,6 +86,10 @@ export default function Home({ history }) {
     { longUrl, accessKey, expirationDateTime }
   ) => {
     e.preventDefault();
+    if (!accessKey) {
+      accessKey = '';
+    }
+
     setNewUrl({
       ...newUrl,
       accessKey,
@@ -114,7 +118,7 @@ export default function Home({ history }) {
         setError({ message: '' });
 
         const { shortUrl } = res.data;
-        setNewUrl({ shortUrl, longUrl });
+        setNewUrl({ shortUrl, longUrl, accessKey });
       } else if (res.status === 429) {
         //   notifyError();
         //   //Todo mostrar dialog de muitas requisições
@@ -160,7 +164,7 @@ export default function Home({ history }) {
           action={handleSubmitUrl}
           isExpandedOptions={shouldExpandOptions}
         />
-        {newUrl.shortUrl && <NewUrlBox url={newUrl} />}
+
         {error.message && (
           <ErrorWarn
             fadeAnimation={propsSpringErrorBox}
