@@ -29,11 +29,9 @@ export default function AuthURL({ history }) {
     e.preventDefault();
 
     await api
-      .get(`${process.env.API_URL}/redirect/${code_}`, {
-        params: {
-          accessKey,
-          name,
-        },
+      .put(`${process.env.REACT_API_URL}/redirect/${code_}`, {
+        accessKey,
+        name,
       })
       .catch(errRes => {
         if (errRes && errRes.response) {

@@ -117,8 +117,8 @@ export default function Home({ history }) {
 
         setError({ message: '' });
 
-        const { shortUrl } = res.data;
-        setNewUrl({ shortUrl, longUrl, accessKey });
+        const { shortUrl, code } = res.data;
+        setNewUrl({ shortUrl, longUrl, accessKey, code });
       } else if (res.status === 429) {
         //   notifyError();
         //   //Todo mostrar dialog de muitas requisições
@@ -172,7 +172,11 @@ export default function Home({ history }) {
           />
         )}
         {newUrl.shortUrl && (
-          <NewUrlBox fadeAnimation={propsSpringNewUrlBox} url={newUrl} />
+          <NewUrlBox
+            history={history}
+            fadeAnimation={propsSpringNewUrlBox}
+            url={newUrl}
+          />
         )}
         {/* <button onClick={goToAnalytics}>PageNotFound></button> */}
         <CreatedURLCounter numberOfURLs={incomingURLs.length} />

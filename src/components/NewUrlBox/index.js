@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 
 import { Container } from './styles';
 
-export default function NewUrlBox({ url, fadeAnimation }) {
+export default function NewUrlBox({ history, url, fadeAnimation }) {
   // useEffect({}, [url]);
   const [copySuccess, setCopySuccess] = useState(false);
   const textPRef = useRef(null);
@@ -17,18 +17,18 @@ export default function NewUrlBox({ url, fadeAnimation }) {
     setCopySuccess(true);
   };
 
-  const handleURLRedirect = event => {
-    window.location.replace(event.currentTarget.textContent);
+  const handleURLRedirect = code => {
+    history.push(`${code}`);
   };
 
   return (
     <Container style={fadeAnimation}>
       <div data-tip={url.longUrl} className="left">
-        <p onClick={handleURLRedirect}>{url.code}</p>
+        <p onClick={() => handleURLRedirect(url.code)}>{url.longUrl}</p>
       </div>
 
       <div className="right">
-        <p onClick={handleURLRedirect}>{url.code}</p>
+        <p onClick={() => handleURLRedirect(url.code)}>{url.shortUrl}</p>
         {document.queryCommandSupported('copy') && (
           <button
             className={copySuccess ? 'copySuccess' : ''}
