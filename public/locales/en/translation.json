@@ -25,6 +25,9 @@
       "Name": "Name",
       "Country": "Country",
       "Date": "Date"
+    },
+    "accesses-table-content": {
+      "Unknown": "Unknown"
     }
   },
   "auth": {
@@ -32,5 +35,8 @@
     "name": "Name (optional)",
     "password": "Password",
     "access": "Access URL"
+  },
+  "format": {
+    "date": "yyyy-MM-dd"
   }
 }
