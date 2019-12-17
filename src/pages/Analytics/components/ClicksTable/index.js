@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,6 +10,7 @@ export default function ClickList({ clicks }) {
     <Container>
       <thead>
         <tr>
+          <th>{t('translation:analytics.accesses-table-header.Name')}</th>
           <th>IP</th>
           <th>{t('translation:analytics.accesses-table-header.Country')}</th>
           <th>{t('translation:analytics.accesses-table-header.Browser')}</th>
@@ -18,10 +20,14 @@ export default function ClickList({ clicks }) {
       <tbody>
         {clicks.map(item => (
           <ClickRow key={clicks.indexOf(item)}>
-            <td>item.IP</td>
-            <td>item.country</td>
-            <td>item.browser</td>
-            <td>item.date</td>
+            <td>
+              {item.name ||
+                t('translation:analytics.accesses-table-content.Unknown')}
+            </td>
+            <td>{item.ip}</td>
+            <td>{item.country}</td>
+            <td>{item.browser}</td>
+            <td>{format(item.date, t('translation:format.date'))}</td>
           </ClickRow>
         ))}
       </tbody>

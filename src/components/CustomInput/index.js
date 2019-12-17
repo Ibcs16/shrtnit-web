@@ -36,7 +36,7 @@ export default function CustomInput({
         height: expandOptions ? '0px' : '100px',
       },
       to: {
-        height: expandOptions ? '100px' : '0px',
+        height: expandOptions ? '40px' : '0px',
         display: expandOptions ? 'block' : 'none',
         opacity: expandOptions ? 1 : 0,
       },
