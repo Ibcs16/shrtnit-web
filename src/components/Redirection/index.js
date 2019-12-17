@@ -9,7 +9,7 @@ export default function Redirection({ history }) {
   useEffect(() => {
     async function redirectToPage(code_) {
       const res = await api
-        .get(`${process.env.API_URL}/redirect/${code_}`)
+        .get(`${process.env.REACT_APP_API_URL}/redirect/${code_}`)
         .catch(error => {
           if (error && error.response) {
             const { longUrl } = error.response.data;
