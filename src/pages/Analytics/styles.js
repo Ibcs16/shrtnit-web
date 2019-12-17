@@ -72,7 +72,7 @@ export const Container = styled.main`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1208px) {
     header {
       display: none;
     }
@@ -96,6 +96,9 @@ export const Container = styled.main`
       #charts div {
         justify-content: center;
 
+        canvas {
+          width: 90%;
+        }
         canvas:first-child {
           grid-column: span 2 / auto;
           grid-row: span 2 / auto;
