@@ -13,7 +13,7 @@ export default createGlobalStyle`
   body {
     overflow: hidden;
     padding: 20px;
-    
+
   }
   body, html, #root{
     height:100%;
