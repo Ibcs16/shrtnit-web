@@ -24,11 +24,11 @@ export default function NewUrlBox({ url, fadeAnimation }) {
   return (
     <Container style={fadeAnimation}>
       <div data-tip={url.longUrl} className="left">
-        <p onClick={handleURLRedirect}>{url.longUrl}</p>
+        <p onClick={handleURLRedirect}>{url.code}</p>
       </div>
 
       <div className="right">
-        <p onClick={handleURLRedirect}>{url.shortUrl}</p>
+        <p onClick={handleURLRedirect}>{url.code}</p>
         {document.queryCommandSupported('copy') && (
           <button
             className={copySuccess ? 'copySuccess' : ''}

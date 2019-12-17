@@ -37,7 +37,7 @@ export const Container = styled(animated.div)`
   }
 
   .right {
-    flex: 32%;
+    flex: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
