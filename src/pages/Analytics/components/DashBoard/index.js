@@ -72,6 +72,15 @@ export default function Dashboard({ clicks }) {
           width={300}
           height={200}
         />
+        <Bar
+          data={dataBrowsers}
+          options={{
+            responsive: false,
+            maintainAspectRatio: false,
+          }}
+          width={300}
+          height={200}
+        />
         {/* <Line
               data={[]}
               options={{ responsive: true, maintainAspectRatio: false }}
