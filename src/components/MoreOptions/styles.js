@@ -21,6 +21,11 @@ export const Container = styled(animated.div)`
   align-item: center;
 
   @media (max-width: 608px) {
+
+    grid-gap: 8px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
     div {
       grid-column: 1 / 3;
     }
