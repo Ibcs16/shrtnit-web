@@ -8,14 +8,16 @@ import { useTranslation } from 'react-i18next';
 import { FaChartBar } from 'react-icons/fa';
 import { MdTranslate } from 'react-icons/md';
 import Particles from 'react-particles-js';
+import { Router } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import ReactTooltip from 'react-tooltip';
 
 import LanguageSelection from './components/LanguageSelection';
 import Routes from './routes';
+import history from './services/history';
 import GlobalStyle from './styles/global';
 
-function App({ history }) {
+function App() {
   const { t, i18n } = useTranslation();
   //   const particlesOpt = {
   //     particles: {
@@ -42,7 +44,9 @@ function App({ history }) {
 
       <LanguageSelection />
 
-      <Routes />
+      <Router history={history}>
+        <Routes />
+      </Router>
       <Particles
         params={{
           particles: {
