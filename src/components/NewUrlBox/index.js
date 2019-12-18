@@ -1,11 +1,12 @@
 import '../../styles/animations.css';
 
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from './styles';
 
 export default function NewUrlBox({ history, url, fadeAnimation }) {
-  // useEffect({}, [url]);
+  const [t, i18n] = useTranslation();
   const [copySuccess, setCopySuccess] = useState(false);
   const textPRef = useRef(null);
 
@@ -34,7 +35,7 @@ export default function NewUrlBox({ history, url, fadeAnimation }) {
             className={copySuccess ? 'copySuccess' : ''}
             onClick={copyToClipboard}
           >
-            Copy
+            {t('translation:copy')}
           </button>
         )}
         <input
