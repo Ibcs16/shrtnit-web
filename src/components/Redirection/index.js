@@ -4,19 +4,20 @@ import api from '../../services/api';
 
 export default function Redirection({ history }) {
   // console.log(history);
-  const [_, code] = history.location.pathname.split('/');
-  console.log(code);
+  const paths = history.location.pathname.split('/');
+  const code = paths[paths.length - 1];
+
   useEffect(() => {
     async function redirectToPage(code_) {
-      const res = await api
-        .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`,{
+      await api
+        .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
           info: {
             ip: '',
             browser: 'google',
             name: 'iago',
             country: 'London',
           },
-          accessKey: ''
+          accessKey: '',
         })
         .catch(error => {
           if (error && error.response) {
