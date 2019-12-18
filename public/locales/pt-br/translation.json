@@ -1,8 +1,8 @@
 {
   "shortened": "URLs encurtadas desde que você entrou aqui",
   "long-url": "https://uma-url-enoooooooooooooooooooooooooooooooooooooooorme.com",
-  "make-private": "Tornar url privada",
-  "make-public": "Tornar url pública",
+  "more-options": "Mais opções",
+  "less-options": "Menos opções",
   "change-language": "Mudar idioma",
   "close-language": "Fechar",
   "english-us": "Inglês-EUA",
@@ -34,8 +34,8 @@
       "placeholder": "Código",
       "paste": "Exemplo: shrnt-it/",
       "code": "código",
-      "valid": "Use a valid code",
-      "needed": "No code to search"
+      "valid": "Usar código válido",
+      "needed": "Nenhum código para pesquisar"
     },
     "noAccesses": "Nenhum dado para mostrar, ainda..."
   },
@@ -47,5 +47,9 @@
   },
   "format": {
     "date": "dd-MM-yyyy"
+  },
+  "page-not-found": {
+    "title": "Página não encontrada",
+    "error": "Essa URL não foi encurtada ou não está mais disponível."
   }
 }

@@ -1,8 +1,8 @@
 {
   "shortened": "URLs shortened since you opened this page",
   "long-url": "https://some-loooooooooooooooooooooooooooooooooooooooonooooog-url.com",
-  "make-private": "Make this URL private",
-  "make-public": "Make this URL public",
+  "more-options": "More options",
+  "less-options": "Less options",
   "change-language": "Change language",
   "close-language": "Close",
   "english-us": "English-US",
@@ -44,6 +44,10 @@
     "name": "Name (optional)",
     "password": "Password",
     "access": "Access URL"
+  },
+  "page-not-found": {
+    "title": "Page not found",
+    "error": "This URL may not have been shortened or is currently unavailable."
   },
   "format": {
     "date": "yyyy-MM-dd"

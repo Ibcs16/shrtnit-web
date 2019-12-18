@@ -1,41 +1,41 @@
 {
-  "shortened": "URLs acortadas desde que entraste aquí",
+  "shortened": "URL acortadas desde que abrió esta página",
   "long-url": "https://una-url-grandiooooooooooooooooooooooooooooooooooooosa.com",
-  "make-private": "Make this URL private",
-  "make-public": "Make this URL public",
-  "change-language": "Mudar idioma",
-  "close-language": "Fechar",
-  "english-us": "English-US",
-  "spanish-es": "Spanish-ES",
-  "portuguese-br": "Portuguese-BR",
+  "more-options": "Más opciones",
+  "less-options": "Menos opciones",
+  "change-language": "Cambiar lenguaje",
+  "close-language": "Cerrar",
+  "english-us": "Inglés-US",
+  "spanish-es": "Español-ES",
+  "portuguese-br": "Portugués-BR",
   "error": {
-    "Couldn't connect to server": "Não foi possível conectar ao servidor",
-    "This URL has already been shortened": "Essa URL já foi encurtada",
-    "Unable to save this URL": "Não foi possível gravar essa URL",
-    "Invalid URL": "Essa URL é inválida",
-    "Server error": "Erro no sevidor",
-    "Access key does not match": "Chave de acesso incorreta"
+    "Couldn't connect to server": "No se puede conectar al servidor",
+    "This URL has already been shortened": "Esta URL ya se ha acortado",
+    "Unable to save this URL": "No se puede guardar esta URL",
+    "Invalid URL": "URL inválida",
+    "Server error": "Error del servidor",
+    "Access key does not match": "La contraseña no coincide"
   },
   "analytics": {
-    "title": "Analytics",
-    "subtitle": "See how this url reached people around the world",
-    "charts": "Charts",
+    "title": "Analíticas",
+    "subtitle": "Vea cómo esta URL llegó a personas de todo el mundo",
+    "charts": "Gráficas",
     "accesses": "Acessos",
     "accesses-table-header": {
       "Browser": "Navegador",
       "Name": "Nome",
       "Country": "País",
-      "Date": "Data"
+      "Date": "Fecha"
     },
     "accesses-table-content": {
       "Unknown": "Desconocido"
     },
     "modal": {
       "placeholder": "Código",
-      "paste": "Exemplo: shrnt-it.com/",
+      "paste": "Ejemplo: shrnt-it.com/",
       "code": "código",
-      "valid": "Use a valid code",
-      "needed": "No code to search"
+      "valid": "Usa un código válido",
+      "needed": "No hay código para buscar"
     },
     "noAccesses": "No hay datos a presentar ahora...",
     "format": {
@@ -44,8 +44,12 @@
   },
   "auth": {
     "title": "Se autentique para acessar a URL",
-    "name": "Nome (opcional)",
-    "password": "Senha",
+    "name": "Nombre (opcional)",
+    "password": "Contraseña",
     "access": "Acessar URL"
+  },
+  "page-not-found": {
+    "title": "Página no encontrada",
+    "error": "Es posible que esta url no se haya creado o que no esté disponible en este momento."
   }
 }
