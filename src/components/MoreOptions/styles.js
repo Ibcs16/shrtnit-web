@@ -19,6 +19,12 @@ export const Container = styled(animated.div)`
   overflow: hidden;
   justify-content: space-between;
   align-item: center;
+
+  @media (max-width: 608px) {
+    div {
+      grid-column: 1 / 3;
+    }
+  }
 `;
 export const UrlOption = styled.div`
   width: 100%;
