@@ -67,11 +67,10 @@ export default function CustomInput({
   };
 
   const handlePasswordChange = e => {
-    console.log(e.target.value);
     setNewURL({
       ...newURL,
       accessKey: e.target.value,
-      isPrivate: newURL.accessKey,
+      isPrivate: e.target.value !== '',
     });
   };
 

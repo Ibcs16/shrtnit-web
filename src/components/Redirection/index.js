@@ -8,7 +8,7 @@ export default function Redirection({ history, match }) {
 
   useEffect(() => {
     async function redirectToPage(code_) {
-      const res = await api
+      await api
         .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
           info: {
             ip: '',
@@ -17,6 +17,12 @@ export default function Redirection({ history, match }) {
             country: 'London',
           },
           accessKey: '',
+        })
+        .then(response => {
+          if (response.status === 200) {
+            const { longUrl } = response.data;
+            window.location.replace(longUrl);
+          }
         })
         .catch(error => {
           console.log(error);
@@ -33,7 +39,8 @@ export default function Redirection({ history, match }) {
           } else {
             history.push('/page-not-found');
           }
-        });
+        })
+        .finally(() => {});
     }
 
     redirectToPage(code);

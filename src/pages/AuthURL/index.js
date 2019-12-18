@@ -13,6 +13,12 @@ export default function AuthURL({ history, match }) {
   const [t, i18n] = useTranslation();
   const [accessKey, setAccessKey] = useState('');
   const [name, setName] = useState('');
+  const info = {
+    ip: '',
+    browser: 'google',
+    name: 'iago',
+    country: 'London',
+  };
   // const [urlString, setUrlString] = useState('');
   // const paths = history.location.pathname.split('/');
   // const code = paths[paths.length - 1];
@@ -35,6 +41,13 @@ export default function AuthURL({ history, match }) {
       .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
         accessKey,
         name,
+        info,
+      })
+      .then(response => {
+        if (response.status === 200) {
+          const { longUrl } = response.data;
+          window.location.replace(longUrl);
+        }
       })
       .catch(errRes => {
         if (errRes && errRes.response) {

@@ -29,10 +29,6 @@ export default function Home({ history }) {
     expirationDateTime: '',
   });
 
-  const isPrivate = useMemo(() => newUrl.accessKey.length > 0, [
-    newUrl.accessKey.length,
-  ]);
-
   const [shouldExpandOptions, setShouldExpandOptions] = useState(false);
 
   // newly created urls notifications from socketio
@@ -83,7 +79,7 @@ export default function Home({ history }) {
 
   const handleSubmitUrl = async (
     e,
-    { longUrl, accessKey, expirationDateTime }
+    { longUrl, accessKey, isPrivate, expirationDateTime }
   ) => {
     e.preventDefault();
     if (!accessKey) {
@@ -92,6 +88,7 @@ export default function Home({ history }) {
 
     setNewUrl({
       ...newUrl,
+      isPrivate,
       accessKey,
       expirationDateTime,
     });
