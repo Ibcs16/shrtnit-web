@@ -1,14 +1,14 @@
-import { Badge, Container, Language, TranslationBox } from './styles';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   MdClose,
   MdRadioButtonChecked,
   MdRadioButtonUnchecked,
   MdTranslate,
 } from 'react-icons/md';
-import React, { useEffect, useState } from 'react';
-
 import { useSpring } from 'react-spring';
-import { useTranslation } from 'react-i18next';
+
+import { Badge, Container, Language, TranslationBox } from './styles';
 
 export default function LanguageSelection() {
   // translation

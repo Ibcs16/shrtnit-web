@@ -3,8 +3,7 @@ import React, { Link, Suspense, useEffect } from 'react';
 import api from '../../services/api';
 
 export default function Redirection({ history, match }) {
-   
-  const code = match.params['code'];
+  const { code } = match.params;
   console.log(code, match, history);
 
   useEffect(() => {
@@ -35,8 +34,6 @@ export default function Redirection({ history, match }) {
             history.push('/page-not-found');
           }
         });
-
-
     }
 
     redirectToPage(code);

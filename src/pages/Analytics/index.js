@@ -11,7 +11,7 @@ import DashBoard from './components/DashBoard';
 import { Container } from './styles';
 
 export default function Analytics({ history }) {
-   console.log(history);
+  console.log(history);
   const [_, __, code] = history.location.pathname.split('/');
 
   const [t, i18n] = useTranslation();
