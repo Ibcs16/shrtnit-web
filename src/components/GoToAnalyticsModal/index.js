@@ -41,7 +41,7 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
           >
             <div className="modal">
               <div className="modal-header">
-                <h1>Analytics</h1>
+                <h1>{t('translation:analytics.title')}</h1>
                 <button
                   type="button"
                   className="modal-close-button"
@@ -76,7 +76,9 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
                   data-dismiss="modal"
                   aria-label="See analytics"
                 >
-                  <span aria-hidden="true">See analytics</span>
+                  <span aria-hidden="true">
+                    {t('translation:analytics.see')}
+                  </span>
                 </button>
               </ModalContent>
             </div>
