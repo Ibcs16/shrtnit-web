@@ -7,15 +7,17 @@ import ErrorWarn from '../../components/ErrorWarn';
 import api from '../../services/api';
 import { AuthForm } from './styles';
 
-export default function AuthURL({ history }) {
+export default function AuthURL({ history, match }) {
+  const { code } = match.params;
+
   const [t, i18n] = useTranslation();
   const [accessKey, setAccessKey] = useState('');
   const [name, setName] = useState('');
   // const [urlString, setUrlString] = useState('');
-  const paths = history.location.pathname.split('/');
-  const code = paths[paths.length - 1];
+  // const paths = history.location.pathname.split('/');
+  // const code = paths[paths.length - 1];
 
-  const shortUlr = `${process.env.REACT_APP_API_URL}/${code}`;
+  const shortUlr = `${process.env.REACT_APP_BASE_URL}/${code}`;
 
   // errors from http request
   const [error, setError] = useState({ message: '' });
@@ -30,7 +32,7 @@ export default function AuthURL({ history }) {
     e.preventDefault();
 
     await api
-      .put(`${process.env.REACT_API_URL}/redirect/${code_}`, {
+      .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
         accessKey,
         name,
       })
@@ -43,7 +45,7 @@ export default function AuthURL({ history }) {
           } else if (errRes.response.status === 401) {
             // todo animation nope if not accessible
           } else if (errRes.response.status === 302) {
-            window.location.replace(errRes.response.data.longUrl);
+            window.location.replace(longUrl);
           }
 
           if (errRes.response.data.error) {
@@ -67,6 +69,7 @@ export default function AuthURL({ history }) {
 
   return (
     <AuthForm
+      data-netlify="true"
       onSubmit={e => {
         redirectToPage(e, code);
       }}

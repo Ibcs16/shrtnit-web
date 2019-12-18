@@ -2,14 +2,14 @@ import React, { Link, Suspense, useEffect } from 'react';
 
 import api from '../../services/api';
 
-export default function Redirection({ history }) {
-  // console.log(history);
-  const paths = history.location.pathname.split('/');
-  const code = paths[paths.length - 1];
+export default function Redirection({ history, match }) {
+   
+  const code = match.params['code'];
+  console.log(code, match, history);
 
   useEffect(() => {
     async function redirectToPage(code_) {
-      await api
+      const res = await api
         .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
           info: {
             ip: '',
@@ -20,6 +20,7 @@ export default function Redirection({ history }) {
           accessKey: '',
         })
         .catch(error => {
+          console.log(error);
           if (error && error.response) {
             const { longUrl } = error.response.data;
 
@@ -34,6 +35,8 @@ export default function Redirection({ history }) {
             history.push('/page-not-found');
           }
         });
+
+
     }
 
     redirectToPage(code);

@@ -7,7 +7,7 @@ export const AuthForm = styled.form`
   margin: 10px;
   padding: 24px;
   max-width: 100%;
-  width: 320px;
+  width: 408px;
   background: white;
   border-radius: 8px;
   position: absolute;
@@ -17,6 +17,7 @@ export const AuthForm = styled.form`
 
   h1:last-of-type {
     color: rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
   }
 
   h1 {

@@ -52,7 +52,11 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <ModalContent schema={schema} onSubmit={handleSubmit}>
+              <ModalContent
+                data-netlify="true"
+                schema={schema}
+                onSubmit={handleSubmit}
+              >
                 <span>
                   <span>{t('translation:analytics.modal.paste')}</span>
                   <strong>{t('translation:analytics.modal.code')}</strong>
