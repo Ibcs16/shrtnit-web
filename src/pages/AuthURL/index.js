@@ -14,7 +14,8 @@ export default function AuthURL({ history }) {
   // const [urlString, setUrlString] = useState('');
   const paths = history.location.pathname.split('/');
   const code = paths[paths.length - 1];
-  const shortUlr = `${process.env.API_URL}/${code}`;
+
+  const shortUlr = `${process.env.REACT_APP_API_URL}/${code}`;
 
   // errors from http request
   const [error, setError] = useState({ message: '' });
