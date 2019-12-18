@@ -98,8 +98,8 @@ export default function CustomInput({
             <button
               data-tip={
                 !newURL.isPrivate
-                  ? t('translation:make-private')
-                  : t('translation:make-public')
+                  ? t('translation:more-options')
+                  : t('translation:less-public')
               }
               type="button"
             >
