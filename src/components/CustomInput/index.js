@@ -20,7 +20,7 @@ export default function CustomInput({
   const { t, i18n } = useTranslation();
 
   // translation box display state
-  const [expandOptions, setexpandOptionss] = useState(true);
+  const [expandOptions, setexpandOptions] = useState(true);
 
   // translation box animation
   const [props, set, stop] = useSpring(() => ({
@@ -30,7 +30,6 @@ export default function CustomInput({
   }));
 
   const toggleOptions = () => {
-    console.log('mudou', expandOptions);
     set({
       from: {
         height: expandOptions ? '0px' : '100px',
@@ -46,7 +45,7 @@ export default function CustomInput({
     });
     stop();
 
-    setexpandOptionss(!expandOptions);
+    setexpandOptions(!expandOptions);
   };
 
   const [newURL, setNewURL] = useState({
@@ -104,14 +103,14 @@ export default function CustomInput({
               }
               type="button"
             >
-              {isExpandedOptions && (
+              {!expandOptions && (
                 <MdExpandLess
                   onClick={() => toggleOptions(false)}
                   size={24}
                   color="rgba(0,0,0,.2)"
                 />
               )}
-              {!isExpandedOptions && (
+              {expandOptions && (
                 <MdExpandMore
                   onClick={() => toggleOptions(true)}
                   size={24}
@@ -131,9 +130,11 @@ export default function CustomInput({
           onChange={handleInputChange}
         />
         <div>
+          {/* {expandOptions && ( */}
           <button type="submit">
             <IoMdSend color="rgb(4,211,97)" size={24} />
           </button>
+          {/* )} */}
         </div>
       </CustomInputContainer>
       <MoreOptions
