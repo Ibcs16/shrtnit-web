@@ -3,19 +3,15 @@ import 'react-toastify/dist/ReactToastify.css';
 // import translation from "./config/translation/translation.js";
 import './config/ReactotronConfig';
 
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { FaChartBar } from 'react-icons/fa';
-import { MdTranslate } from 'react-icons/md';
-import Particles from 'react-particles-js';
-import { Router } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import ReactTooltip from 'react-tooltip';
-
+import GlobalStyle from './styles/global';
 import LanguageSelection from './components/LanguageSelection';
+import Particles from 'react-particles-js';
+import React from 'react';
+import ReactTooltip from 'react-tooltip';
+import { Router } from 'react-router-dom';
 import Routes from './routes';
 import history from './services/history';
-import GlobalStyle from './styles/global';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -47,7 +43,7 @@ function App() {
       <Router history={history}>
         <Routes />
       </Router>
-      <Particles
+      {/* <Particles
         params={{
           particles: {
             line_linked: {
@@ -59,11 +55,15 @@ function App() {
             },
           },
         }}
-        style={{
-          width: '100%',
-          // backgroundImage: `url(${logo})`,
-        }}
-      />
+        width="100%"
+        height="100%"
+        style={
+          {
+            // width: '100%',
+            // backgroundImage: `url(${logo})`,
+          }
+        }
+      /> */}
     </>
   );
 }
