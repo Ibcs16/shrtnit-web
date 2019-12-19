@@ -1,4 +1,5 @@
 import { Form, Input } from '@rocketseat/unform';
+
 import { darken } from 'polished';
 import styled from 'styled-components';
 
@@ -135,6 +136,7 @@ export const ModalInput = styled(Input)`
   width: 100%;
   border-radius: 4px;
   border: 1px solid rgb(4, 211, 97);
+  margin-top: 8px;
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.7);
