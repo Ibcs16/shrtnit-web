@@ -53,6 +53,7 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
                 </button>
               </div>
               <ModalContent
+                data-testid="goToAnalyticsForm"
                 data-netlify="true"
                 schema={schema}
                 onSubmit={handleSubmit}
@@ -62,6 +63,7 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
                   <strong>{t('translation:analytics.modal.code')}</strong>
                 </span>
                 <ModalInput
+                  data-testid="codeUrl"
                   onChange={handleCodeChange}
                   type="text"
                   name="codeUrl"

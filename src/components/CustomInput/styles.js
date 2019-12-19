@@ -15,6 +15,7 @@ export const CustomInputContainer = styled.form`
   align-items: center;
   /* animation-name: shrink;
   animation-duration: 1ms; */
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
 
   &.nope {
     animation: nope 700ms;

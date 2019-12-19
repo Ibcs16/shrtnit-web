@@ -18,7 +18,7 @@ export default function MoreOptions({
 
   return (
     <animated.div
-      style={{ ...expandProps, width: '100%', marginBottom: '8px' }}
+      style={{ ...expandProps, width: '100%', marginBottom: '38px' }}
     >
       <Container>
         <UrlOption>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled(animated.div)`
   position: relative;
-  min-height: 60px;
+  min-height: 90px;
   width: 100%;
   background: #fff;
   box-shadow: 0 1px 4px 0 rgba(192, 208 230, 0.6);
@@ -14,7 +14,7 @@ export const Container = styled(animated.div)`
   margin-top: -2rem;
   border-radius: 0px 0px 16px 16px;
   padding: 20px 40px;
-  padding-top: 2rem;
+  padding-top: 55px;
   /* animation: expand 3s; */
   overflow: hidden;
   justify-content: space-between;
