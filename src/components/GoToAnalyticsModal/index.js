@@ -1,8 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
 
 import { Container, ModalContent, ModalInput } from './styles';
 
@@ -10,36 +8,23 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
   // url code data
   const [code, setCode] = useState('');
   const [t, i18n] = useTranslation();
-
-  // frorm validation schema
-  const [schema, setSchema] = useState(
-    Yup.object().shape({
-      codeUrl: Yup.string(t('translation:analytics.modal.valid')).required(
-        t('translation:analytics.modal.needed')
-      ),
-    })
-  );
-
-  useState(() => {
-    setSchema(
-      Yup.object().shape({
-        codeUrl: Yup.string(t('translation:analytics.modal.valid')).required(
-          t('translation:analytics.modal.needed')
-        ),
-      })
-    );
-  }, [i18n.language, t]);
+  const [error, setError] = useState(false);
 
   // goes to analytics page with input code
   const handleSubmit = () => {
     if (code) {
       history.push(`/analytics/${code}`);
+    } else {
+      setError(true);
     }
   };
 
   // listen for user input change
   const handleCodeChange = e => {
     setCode(e.target.value);
+    if (e.target.value) {
+      setError(false);
+    }
   };
 
   // show or close modal depending on user click on analytics icon
@@ -70,7 +55,7 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
               <ModalContent
                 data-testid="goToAnalyticsForm"
                 data-netlify="true"
-                schema={schema}
+                // schema={schema}
                 onSubmit={handleSubmit}
               >
                 <span>
@@ -84,9 +69,9 @@ const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
                   name="codeUrl"
                   placeholder={t('translation:analytics.modal.placeholder')}
                 />
-                {/* <Link to={>
-                  <span>Go to analytics</span>
-                </Link> */}
+                <small className="noCode">
+                  {error && t('translation:analytics.modal.needed')}
+                </small>
                 <button
                   type="submit"
                   className="modal-send-button"
