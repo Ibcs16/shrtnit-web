@@ -34,17 +34,14 @@ export default function Dashboard({ clicks, lastDayClicks }) {
     labels: ['-7d', '-6d', '-4d', '-3d', '2d', '-1d', 'Current'],
     datasets: [
       {
-        label: 'Accesses to this URL',
+        label: 'Overall accesses',
         backgroundColor: 'rgb(5, 111, 67)',
-        data: [
-          lastDayClicks[6][1],
-          lastDayClicks[5][1],
-          lastDayClicks[4][1],
-          lastDayClicks[5][1],
-          lastDayClicks[2][1],
-          lastDayClicks[1][1],
-          lastDayClicks[0][1],
-        ],
+        data: [7, 2, 4, 21, 2, 5, 9],
+      },
+      {
+        label: 'Accesses to this URL',
+        backgroundColor: 'rgb(4, 211, 97)',
+        data: [1, 2, 3, 4, 5, 8, 7],
       },
     ],
   };
