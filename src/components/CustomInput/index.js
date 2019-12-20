@@ -90,9 +90,9 @@ export default function CustomInput({
           {haveLeftIcon && (
             <button
               data-tip={
-                !newURL.isPrivate
-                  ? t('translation:more-options')
-                  : t('translation:less-public')
+                !expandOptions
+                  ? t('translation:less-options')
+                  : t('translation:more-options')
               }
               type="button"
             >
