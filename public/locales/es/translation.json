@@ -4,7 +4,10 @@
   "more-options": "Más opciones",
   "less-options": "Menos opciones",
   "change-language": "Cambiar lenguaje",
+  "copy": "Copiar",
+  "copied": "Copiado",
   "close-language": "Cerrar",
+  "password": "Contraseña de accesso",
   "english-us": "Inglés-US",
   "spanish-es": "Español-ES",
   "portuguese-br": "Portugués-BR",
@@ -52,5 +55,6 @@
   "page-not-found": {
     "title": "Página no encontrada",
     "error": "Es posible que esta url no se haya creado o que no esté disponible en este momento."
-  }
+  },
+  "loading": "Cargando..."
 }
