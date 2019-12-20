@@ -1,5 +1,4 @@
 import { Form, Input } from '@rocketseat/unform';
-
 import { darken } from 'polished';
 import styled from 'styled-components';
 
@@ -123,6 +122,10 @@ export const ModalContent = styled(Form)`
       color: rgba(255, 255, 255, 0.7);
       background: ${darken(0.03, 'rgb(4,211,97)')};
     }
+  }
+
+  .noCode {
+    color: #d92121;
   }
 `;
 

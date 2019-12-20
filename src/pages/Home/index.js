@@ -103,12 +103,7 @@ export default function Home({ history }) {
 
       if (res.status === 200) {
         if (res.data.error) {
-          console.log(res.data);
           setError({ message: res.data.message });
-          // const timer = setTimeout(() => {
-          //   setError({ message: "" });
-          // }, 4000);
-          // return () => clearTimeout(timer);
           return;
         }
 
@@ -117,9 +112,7 @@ export default function Home({ history }) {
         const { shortUrl, code } = res.data;
         setNewUrl({ shortUrl, longUrl, accessKey, code });
       } else if (res.status === 429) {
-        //   notifyError();
-        //   //Todo mostrar dialog de muitas requisições
-        // } else {
+        //
       } else {
         setError({ message: "Couldn't connect to server" });
       }
