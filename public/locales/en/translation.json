@@ -17,7 +17,8 @@
     "Unable to save this URL": "Unable to save this URL",
     "Invalid URL": "Invalid URL",
     "Server error": "Server error",
-    "Access key does not match": "Access key does not match"
+    "Access key does not match": "Access key does not match",
+    "Must authenticate": "Must authenticate"
   },
   "analytics": {
     "title": "Analytics",

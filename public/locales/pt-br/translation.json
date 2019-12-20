@@ -17,7 +17,8 @@
     "Unable to save this URL": "Não foi possível gravar essa URL",
     "Invalid URL": "Essa URL é inválida",
     "Server error": "Erro no sevidor",
-    "Access key does not match": "Chave de acesso incorreta"
+    "Access key does not match": "Chave de acesso incorreta",
+    "Must authenticate": "Você deve se autenticar"
   },
   "analytics": {
     "title": "Análises",

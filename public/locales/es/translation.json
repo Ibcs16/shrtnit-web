@@ -17,7 +17,8 @@
     "Unable to save this URL": "No se puede guardar esta URL",
     "Invalid URL": "URL inválida",
     "Server error": "Error del servidor",
-    "Access key does not match": "La contraseña no coincide"
+    "Access key does not match": "La contraseña no coincide",
+    "Must authenticate": "Debe autentificar"
   },
   "analytics": {
     "title": "Analíticas",
