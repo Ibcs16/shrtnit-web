@@ -62,18 +62,22 @@ export default function AuthURL({ history, match }) {
     }
 
     // gets geo info from ipinfo api
-    const ipinfo = await api.get(
-      `https://ipinfo.io/json?token=${process.env.REACT_APP_IP_INFO}`
-    );
+    await api
+      .get(`https://ipinfo.io/json?token=${process.env.REACT_APP_IP_INFO}`)
+      .then(response => {
+        const ipinfo = response;
 
-    // update info
-    if (ipinfo.status === 200) {
-      const { ip, country } = ipinfo.data;
-      info.ip = ip;
-      info.country = country;
-    }
+        // update info
+        if (ipinfo.status === 200) {
+          const { ip, country } = ipinfo.data;
 
-    console.log('info=>', info);
+          info.ip = ip || info.ip;
+          info.country = country || info.country;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+      });
 
     await api
       .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
