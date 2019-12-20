@@ -47,7 +47,7 @@ function App() {
       <Router history={history}>
         <Routes />
       </Router>
-      <Particles
+      {/* <Particles
         params={{
           particles: {
             line_linked: {
@@ -63,7 +63,7 @@ function App() {
           width: '100%',
           // backgroundImage: `url(${logo})`,
         }}
-      />
+      /> */}
     </>
   );
 }
