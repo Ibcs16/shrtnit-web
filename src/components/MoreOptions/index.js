@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import { useTranslation } from 'react-i18next';
-import { IoMdCalendar, IoMdEye, IoMdEyeOff, IoMdLock } from 'react-icons/io';
-import { animated } from 'react-spring';
-
 import { Container, UrlOption, UrlOptionInput } from './styles';
+import { IoMdCalendar, IoMdEye, IoMdEyeOff, IoMdLock } from 'react-icons/io';
+import React, { useState } from 'react';
+
+import DatePicker from 'react-datepicker';
+import { animated } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 export default function MoreOptions({
   handlePasswordChange,
