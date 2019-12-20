@@ -8,6 +8,8 @@ import { Container } from './styles';
 
 export default function ErrorWarn({ message, fadeAnimation }) {
   const [t, i18n] = useTranslation();
+
+  // reurn error with animation
   return (
     <Container style={fadeAnimation}>
       <span>{t(`translation:error.${message}`)}</span>

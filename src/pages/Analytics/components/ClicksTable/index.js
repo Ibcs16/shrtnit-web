@@ -5,7 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { ClickRow, Container } from './styles';
 
 export default function ClickList({ clicks }) {
+  // translations
   const [t, i18n] = useTranslation();
+
+  // return table listing all clicks
   return (
     <Container>
       <thead>

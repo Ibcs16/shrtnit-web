@@ -19,9 +19,6 @@ export default function AuthURL({ history, match }) {
     name: 'iago',
     country: 'London',
   };
-  // const [urlString, setUrlString] = useState('');
-  // const paths = history.location.pathname.split('/');
-  // const code = paths[paths.length - 1];
 
   const shortUlr = `${process.env.REACT_APP_BASE_URL}/${code}`;
 

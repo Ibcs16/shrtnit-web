@@ -9,24 +9,27 @@ import { Container } from './styles';
 export default function Dashboard({ clicks }) {
   const [t, i18n] = useTranslation();
 
+  // accesses from chrome browser
   const chrome = clicks.reduce((accumulator, click) => {
     return click.browser === 'Chrome' ? accumulator + 1 : accumulator;
   }, 0);
 
+  // accesses from mozilla browser
   const mozilla = clicks.reduce((accumulator, click) => {
     return click.browser === 'Mozilla' ? accumulator + 1 : accumulator;
   }, 0);
 
+  // accesses from safari browser
   const safari = clicks.reduce((accumulator, click) => {
     return click.browser === 'Safari' ? accumulator + 1 : accumulator;
   }, 0);
 
+  // accesses from other browsers
   const others = clicks.reduce((accumulator, click) => {
     return click.browser === '' ? accumulator + 1 : accumulator;
   }, 0);
 
-  // clicks = [];
-
+  // global acceses and url accesses chart data
   const data = {
     labels: ['1', '2', '3', '4', '5'],
     datasets: [
@@ -43,6 +46,7 @@ export default function Dashboard({ clicks }) {
     ],
   };
 
+  // browsers accesses comparison chart data
   const dataBrowsers = {
     labels: ['Chrome', 'Firefox', 'Safari', 'Others'],
     datasets: [
@@ -87,23 +91,6 @@ export default function Dashboard({ clicks }) {
             <span>{t('translation:analytics.noAccesses')}</span>
           </div>
         )}
-        {/* <Bar
-          data={dataBrowsers}
-          options={{
-            responsive: false,
-            maintainAspectRatio: false,
-          }}
-          width={300}
-          height={200}
-        /> */}
-        {/* <Line
-              data={[]}
-              options={{ responsive: true, maintainAspectRatio: false }}
-            />
-            <Line
-              data={[]}
-              options={{ responsive: true, maintainAspectRatio: false }}
-            /> */}
       </Container>
     </>
   );

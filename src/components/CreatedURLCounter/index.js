@@ -6,9 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Container } from './styles';
 
 export default function CreatedURLCounter({ numberOfURLs }) {
-  const { t, i18n } = useTranslation('en');
-
-  // console.log(t);
+  const { t, i18n } = useTranslation();
 
   return (
     <Container className="incomingURLCounter">

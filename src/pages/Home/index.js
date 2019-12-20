@@ -70,9 +70,9 @@ export default function Home({ history }) {
     return socketio(`${process.env.REACT_APP_API_URL}`);
   }, []);
 
+  // changes new url count everytime a URL is created by someone
   useEffect(() => {
     socket.on('created_url', url => {
-      console.log('criou');
       setIncomingURLS([...incomingURLs, url]);
     });
   }, [socket, incomingURLs]);
@@ -128,10 +128,6 @@ export default function Home({ history }) {
       setError({ message: "Couldn't connect to server" });
     }
   };
-
-  // const toggleOptions = toggle => {
-  //   setShouldExpandOptions(toggle);
-  // };
 
   return (
     <>

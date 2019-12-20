@@ -13,12 +13,15 @@ import { Badge, Container, Language, TranslationBox } from './styles';
 export default function LanguageSelection() {
   // translation
   const [t, i18n] = useTranslation();
+  // selected language state
   const [languageChange, setLanguageChange] = useState('');
 
+  // available langues
   const [languages, setLanguages] = useState([]);
 
   // translation box display state
   const [tBoxIsClosed, settBoxIsClosed] = useState(true);
+
   // translation box animation
   const [props, set, stop] = useSpring(() => ({
     to: {
@@ -26,6 +29,7 @@ export default function LanguageSelection() {
     },
   }));
 
+  // reload component on language selection
   useEffect(() => {
     setLanguages([
       {
@@ -46,13 +50,13 @@ export default function LanguageSelection() {
     ]);
   }, [i18n.language, languageChange, t]);
 
+  // if language is selected, changes selected language
   const changeLanguage = async ln => {
     await i18n.changeLanguage(ln);
     setLanguageChange(ln);
   };
 
-  // opens or close the box based on last state
-
+  // toggle language selection box
   const toggleTBox = () => {
     set({
       from: {
@@ -72,6 +76,7 @@ export default function LanguageSelection() {
     settBoxIsClosed(!tBoxIsClosed);
   };
 
+  // return component
   return (
     <div
       style={{

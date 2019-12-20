@@ -11,11 +11,16 @@ export default function MoreOptions({
   handleDateChange,
   expandProps,
 }) {
+  // state for storing password viewing type = text/password
   const [viewPassword, setViewPassword] = useState(false);
+
+  // selected expiration date
   const [startDate, setStartDate] = useState(new Date());
 
+  // translation info
   const [t, i18next] = useTranslation();
 
+  // return component
   return (
     <animated.div
       style={{ ...expandProps, width: '100%', marginBottom: '38px' }}
