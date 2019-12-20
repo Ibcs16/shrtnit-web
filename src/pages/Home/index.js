@@ -1,20 +1,20 @@
 import '../../styles/animations.css';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { FaChartBar } from 'react-icons/fa';
-import { MdNewReleases } from 'react-icons/md';
-import { useSpring } from 'react-spring';
-import socketio from 'socket.io-client';
 
+import { Container } from './styles';
 import CreatedURLCounter from '../../components/CreatedURLCounter';
 import CustomInput from '../../components/CustomInput';
 import ErrorWarn from '../../components/ErrorWarn';
+import { FaChartBar } from 'react-icons/fa';
+import { MdNewReleases } from 'react-icons/md';
 import Modal from '../../components/GoToAnalyticsModal';
 import NewUrlBox from '../../components/NewUrlBox';
-import useModal from '../../hooks/modal';
 import api from '../../services/api';
-import { Container } from './styles';
+import socketio from 'socket.io-client';
+import useModal from '../../hooks/modal';
+import { useSpring } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 export default function Home({ history }) {
   const [t, i18next] = useTranslation();
@@ -90,7 +90,7 @@ export default function Home({ history }) {
       ...newUrl,
       isPrivate,
       accessKey,
-      expirationDateTime,
+      expirationDateTime: new Date(expirationDateTime).toUTCString(),
     });
 
     try {
