@@ -1,3 +1,4 @@
+import { detect } from 'detect-browser';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaUnlockAlt, FaWpforms } from 'react-icons/fa';
@@ -8,17 +9,21 @@ import api from '../../services/api';
 import { AuthForm } from './styles';
 
 export default function AuthURL({ history, match }) {
+  // browser detection
+  let browser = null;
+
+  // detect browser
+  try {
+    browser = detect();
+  } catch (err) {
+    browser = null;
+  }
+
   const { code } = match.params;
 
   const [t, i18n] = useTranslation();
   const [accessKey, setAccessKey] = useState('');
   const [name, setName] = useState('');
-  const info = {
-    ip: '',
-    browser: 'google',
-    name: 'iago',
-    country: 'London',
-  };
 
   const shortUlr = `${process.env.REACT_APP_BASE_URL}/${code}`;
 
@@ -33,6 +38,42 @@ export default function AuthURL({ history, match }) {
 
   async function redirectToPage(e, code_) {
     e.preventDefault();
+
+    const info = {
+      ip: 'UNKNOWN',
+      browser: 'UNKNOWN',
+      name: 'UNKNOWN',
+      country: 'UNKNOWN',
+    };
+
+    // detect browser name
+    switch (browser && browser.name) {
+      case 'chrome':
+        info.browser = 'Chrome';
+        break;
+      case 'firefox':
+        info.browser = 'Firefox';
+        break;
+      case 'edge':
+        info.browser = 'Edge';
+        break;
+      default:
+        break;
+    }
+
+    // gets geo info from ipinfo api
+    const ipinfo = await api.get(
+      `https://ipinfo.io/json?token=${process.env.REACT_APP_IP_INFO}`
+    );
+
+    // update info
+    if (ipinfo.status === 200) {
+      const { ip, country } = ipinfo.data;
+      info.ip = ip;
+      info.country = country;
+    }
+
+    console.log('info=>', info);
 
     await api
       .put(`${process.env.REACT_APP_API_URL}/redirect/${code_}`, {
