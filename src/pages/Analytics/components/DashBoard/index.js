@@ -1,8 +1,8 @@
-import React from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
-import { useTranslation } from 'react-i18next';
 
 import { Container } from './styles';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 // import { Container } from './styles';
 
@@ -71,7 +71,7 @@ export default function Dashboard({ clicks }) {
               data={data}
               options={{
                 responsive: false,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
               }}
               width={600}
               height={200}
@@ -80,7 +80,7 @@ export default function Dashboard({ clicks }) {
               data={dataBrowsers}
               options={{
                 responsive: false,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
               }}
               width={300}
               height={200}

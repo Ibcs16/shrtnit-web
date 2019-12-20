@@ -63,6 +63,7 @@ export const Container = styled.main`
         grid-row-gap: 12px;
         grid-column-gap: 12px;
         grid-template-rows: 100px 100px;
+        justify-items: center;
 
         canvas:first-child {
           grid-column: span 1 / auto;
@@ -72,7 +73,7 @@ export const Container = styled.main`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 668px) {
     header {
       display: none;
     }

@@ -17,4 +17,20 @@ export const Container = styled.div`
       text-align: center;
     }
   }
+
+  @media (max-width: 668px) {
+    canvas {
+      grid-column: 1 / 3;
+
+      &:first-child {
+        width: 95% !important;
+      }
+    }
+  }
+
+  @media (max-width: 880px) {
+    canvas {
+      grid-column: 1 / 3;
+    }
+  }
 `;
