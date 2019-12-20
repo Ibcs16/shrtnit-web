@@ -1,14 +1,14 @@
 import '../../styles/animations.css';
 
-import { fomat } from 'date-fns';
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { IoMdArrowBack } from 'react-icons/io';
 
-import api from '../../services/api';
 import ClicksTable from './components/ClicksTable';
-import DashBoard from './components/DashBoard';
 import { Container } from './styles';
+import DashBoard from './components/DashBoard';
+import { IoMdArrowBack } from 'react-icons/io';
+import api from '../../services/api';
+import { fomat } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 export default function Analytics({ history }) {
   // code from url parameter
@@ -32,6 +32,7 @@ export default function Analytics({ history }) {
 
       if (res.status === 200) {
         setUrl({ ...res.data });
+        console.log(res.data);
       }
     }
 
@@ -61,7 +62,10 @@ export default function Analytics({ history }) {
         </section>
         <section id="clicks">
           <h1>{t('translation:analytics.accesses')}</h1>
-          <ClicksTable clicks={url.analytics.accesses} />
+          <ClicksTable
+            clicks={url.analytics.accesses}
+            lastDayClicks={url.analytics}
+          />
         </section>
       </main>
     </Container>

@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 
 // import { Container } from './styles';
 
-export default function Dashboard({ clicks }) {
+export default function Dashboard({ clicks, lastDayClicks }) {
   const [t, i18n] = useTranslation();
-
+  console.log(clicks, lastDayClicks);
   // accesses from chrome browser
   const chrome = clicks.reduce((accumulator, click) => {
     return click.browser === 'Chrome' ? accumulator + 1 : accumulator;
@@ -31,17 +31,20 @@ export default function Dashboard({ clicks }) {
 
   // global acceses and url accesses chart data
   const data = {
-    labels: ['1', '2', '3', '4', '5'],
+    labels: ['-7d', '-6d', '-4d', '-3d', '2d', '-1d', 'Current'],
     datasets: [
-      {
-        label: 'Overall accesses',
-        backgroundColor: 'rgb(4, 211, 97)',
-        data: [7, 2, 4, 21, 2, 5, 9],
-      },
       {
         label: 'Accesses to this URL',
         backgroundColor: 'rgb(5, 111, 67)',
-        data: [1, 2, 3, 4, 5, 8, 7],
+        data: [
+          lastDayClicks[6][1],
+          lastDayClicks[5][1],
+          lastDayClicks[4][1],
+          lastDayClicks[5][1],
+          lastDayClicks[2][1],
+          lastDayClicks[1][1],
+          lastDayClicks[0][1],
+        ],
       },
     ],
   };
