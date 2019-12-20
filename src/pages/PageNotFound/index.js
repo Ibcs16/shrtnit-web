@@ -9,7 +9,6 @@ import { Container } from './styles';
 export default function PageNotFound() {
   const [t, i18n] = useTranslation();
   const [newUrl, setNewUrl] = useState();
-  const [incomingURLS, setIncomingURLS] = useState([]);
 
   return (
     <Container>

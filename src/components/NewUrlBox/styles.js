@@ -57,6 +57,11 @@ export const Container = styled(animated.div)`
       border: none;
       border-radius: 6px;
       background: rgba(217, 255, 214, 1);
+
+      &.copySuccess {
+        background: rgb(4, 211, 97);
+        color: #fff;
+      }
     }
   }
 `;

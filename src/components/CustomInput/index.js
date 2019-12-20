@@ -29,6 +29,7 @@ export default function CustomInput({
     },
   }));
 
+  // animate toggle for more options => show/hide
   const toggleOptions = () => {
     set({
       from: {
@@ -48,6 +49,7 @@ export default function CustomInput({
     setexpandOptions(!expandOptions);
   };
 
+  // url data in input
   const [newURL, setNewURL] = useState({
     longUrl: '',
     accessKey: '',
@@ -56,6 +58,7 @@ export default function CustomInput({
   });
   const [errorClass, setErrorClass] = useState('');
 
+  // change url state when input change
   const handleInputChange = e => {
     setNewURL({ ...newURL, longUrl: e.target.value });
   };
@@ -73,17 +76,7 @@ export default function CustomInput({
     });
   };
 
-  useEffect(() => {
-    // setErrorClass('nope');
-    if (error.message) {
-      setErrorClass('nope');
-    }
-
-    const timer = setTimeout(() => {
-      setErrorClass('');
-    }, 700);
-    return () => clearTimeout(timer);
-  }, [error]);
+  // component
 
   return (
     <>
@@ -130,11 +123,9 @@ export default function CustomInput({
           onChange={handleInputChange}
         />
         <div>
-          {/* {expandOptions && ( */}
           <button type="submit">
             <IoMdSend color="rgb(4,211,97)" size={24} />
           </button>
-          {/* )} */}
         </div>
       </CustomInputContainer>
       <MoreOptions

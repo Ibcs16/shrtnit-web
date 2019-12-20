@@ -5,7 +5,10 @@
   "less-options": "Less options",
   "change-language": "Change language",
   "close-language": "Close",
+  "copy": "Copy",
+  "copied": "Copied",
   "english-us": "English-US",
+  "password": "Access key",
   "spanish-es": "Spanish-ES",
   "portuguese-br": "Portuguese-BR",
   "error": {
@@ -52,5 +55,6 @@
   },
   "format": {
     "date": "yyyy-MM-dd"
-  }
+  },
+  "loading": "Loading..."
 }

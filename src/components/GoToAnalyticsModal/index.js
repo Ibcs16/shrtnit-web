@@ -7,27 +7,42 @@ import * as Yup from 'yup';
 import { Container, ModalContent, ModalInput } from './styles';
 
 const GoToAnalyticsModal = ({ history, isShowing, hide, goToAnalytics }) => {
+  // url code data
   const [code, setCode] = useState('');
   const [t, i18n] = useTranslation();
 
-  // const code = useMemo(() => url.split('/')[1], [url]);
+  // frorm validation schema
+  const [schema, setSchema] = useState(
+    Yup.object().shape({
+      codeUrl: Yup.string(t('translation:analytics.modal.valid')).required(
+        t('translation:analytics.modal.needed')
+      ),
+    })
+  );
 
-  const schema = Yup.object().shape({
-    codeUrl: Yup.string(t('translation:analytics.modal.valid')).required(
-      t('translation:analytics.modal.needed')
-    ),
-  });
+  useState(() => {
+    setSchema(
+      Yup.object().shape({
+        codeUrl: Yup.string(t('translation:analytics.modal.valid')).required(
+          t('translation:analytics.modal.needed')
+        ),
+      })
+    );
+  }, [i18n.language, t]);
 
+  // goes to analytics page with input code
   const handleSubmit = () => {
     if (code) {
       history.push(`/analytics/${code}`);
     }
   };
 
+  // listen for user input change
   const handleCodeChange = e => {
     setCode(e.target.value);
   };
 
+  // show or close modal depending on user click on analytics icon
   return isShowing
     ? ReactDOM.createPortal(
         <Container>

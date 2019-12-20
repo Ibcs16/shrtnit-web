@@ -11,62 +11,19 @@ import DashBoard from './components/DashBoard';
 import { Container } from './styles';
 
 export default function Analytics({ history }) {
-  console.log(history);
+  // code from url parameter
   const [_, __, code] = history.location.pathname.split('/');
 
   const [t, i18n] = useTranslation();
-  const [incomingURLS, setIncomingURLS] = useState({});
   const [data, setData] = useState([]);
   const [url, setUrl] = useState({
     shortUrl: `${process.env.REACT_APP_BASE_URL}/${code}`,
     analytics: {
-      accesses: [
-        // {
-        //   ip: '123.123',
-        //   name: '',
-        //   browser: 'Chrome',
-        //   country: 'Brazil',
-        //   date: Date.now(),
-        // },
-        // {
-        //   ip: '222.555',
-        //   name: 'duda',
-        //   browser: 'Mozilla',
-        //   country: 'Portugal',
-        //   date: Date.now(),
-        // },
-        // {
-        //   ip: '123.123',
-        //   name: '',
-        //   browser: 'Chrome',
-        //   country: 'Brazil',
-        //   date: Date.now(),
-        // },
-        // {
-        //   ip: '222.555',
-        //   name: 'duda',
-        //   browser: 'Safari',
-        //   country: 'Portugal',
-        //   date: Date.now(),
-        // },
-        // {
-        //   ip: '123.123',
-        //   name: '',
-        //   browser: 'Safari',
-        //   country: 'Brazil',
-        //   date: Date.now(),
-        // },
-        // {
-        //   ip: '222.555',
-        //   name: 'duda',
-        //   browser: '',
-        //   country: 'Portugal',
-        //   date: Date.now(),
-        // },
-      ],
+      accesses: [],
     },
   });
 
+  // loads analytics from server once page is loaded
   useEffect(() => {
     async function getAnalytics(code_) {
       const res = await api.get(
@@ -79,8 +36,6 @@ export default function Analytics({ history }) {
     }
 
     getAnalytics(code);
-
-    // getAnalytics(history.getParam("code"));
   }, [code]);
 
   return (

@@ -5,6 +5,9 @@
   "less-options": "Menos opções",
   "change-language": "Mudar idioma",
   "close-language": "Fechar",
+  "copy": "Copiar",
+  "copied": "Copiado",
+  "password": "Chave de acesso",
   "english-us": "Inglês-EUA",
   "spanish-es": "Espanhol-ES",
   "portuguese-br": "Português-BR",
@@ -52,5 +55,6 @@
   "page-not-found": {
     "title": "Página não encontrada",
     "error": "Essa URL não foi encurtada ou não está mais disponível."
-  }
+  },
+  "loading": "Carregando..."
 }

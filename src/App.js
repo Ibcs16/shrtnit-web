@@ -1,17 +1,19 @@
 import 'react-toastify/dist/ReactToastify.css';
-// import { I18nextProvider } from "react-i18next";
-// import translation from "./config/translation/translation.js";
 import './config/ReactotronConfig';
 
-import GlobalStyle from './styles/global';
-import LanguageSelection from './components/LanguageSelection';
-import Particles from 'react-particles-js';
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
+import { useTranslation } from 'react-i18next';
+import Particles from 'react-particles-js';
 import { Router } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
+
+import LanguageSelection from './components/LanguageSelection';
 import Routes from './routes';
 import history from './services/history';
-import { useTranslation } from 'react-i18next';
+import GlobalStyle from './styles/global';
+
+// import { I18nextProvider } from "react-i18next";
+// import translation from "./config/translation/translation.js";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -55,14 +57,10 @@ function App() {
             },
           },
         }}
-        width="100%"
-        height="100%"
-        style={
-          {
-            // width: '100%',
-            // backgroundImage: `url(${logo})`,
-          }
-        }
+        style={{
+          width: '100%',
+          // backgroundImage: `url(${logo})`,
+        }}
       /> */}
     </>
   );
