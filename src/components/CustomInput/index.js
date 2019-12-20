@@ -1,13 +1,13 @@
 import '../../styles/animations.css';
 
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { IoMdLock, IoMdSend, IoMdUnlock } from 'react-icons/io';
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
-import { useSpring } from 'react-spring';
+import React, { useEffect, useState } from 'react';
 
-import MoreOptions from '../MoreOptions';
 import { CustomInputContainer } from './styles';
+import MoreOptions from '../MoreOptions';
+import { useSpring } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 export default function CustomInput({
   error,
@@ -53,7 +53,7 @@ export default function CustomInput({
   const [newURL, setNewURL] = useState({
     longUrl: '',
     accessKey: '',
-    expirationDaTime: '',
+    expirationDateTime: '',
     isPrivate: false,
   });
   const [errorClass, setErrorClass] = useState('');
@@ -65,7 +65,7 @@ export default function CustomInput({
 
   const handleDateChange = e => {
     console.log(e.target.value);
-    setNewURL({ ...newURL, expirationDaTime: e.target.value });
+    setNewURL({ ...newURL, expirationDateTime: e.target.value });
   };
 
   const handlePasswordChange = e => {
