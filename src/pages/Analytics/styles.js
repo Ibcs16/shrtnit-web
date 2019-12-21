@@ -86,7 +86,7 @@ export const Container = styled.main`
   }
 
   @media (max-width: 1208px) {
-    header {
+    header > div:first-child h1 {
       display: none;
     }
 
