@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState } from 'react';
 
 import { Container } from './styles';
+import { useTranslation } from 'react-i18next';
 
 // import { Container } from './styles';
 
@@ -40,7 +40,15 @@ export default function Dashboard({ clicks, lastSevenDaysClicks }) {
         {
           label: t('translation:analytics.label'),
           backgroundColor: 'rgb(4, 211, 97)',
-          data: lastSevenDaysClicks.reverse(),
+          data: [
+            lastSevenDaysClicks[6],
+            lastSevenDaysClicks[5],
+            lastSevenDaysClicks[4],
+            lastSevenDaysClicks[3],
+            lastSevenDaysClicks[2],
+            lastSevenDaysClicks[1],
+            lastSevenDaysClicks[0],
+          ],
         },
       ],
     });
