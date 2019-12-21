@@ -1,8 +1,8 @@
+import { detect } from 'detect-browser';
 import React, { Link, Suspense, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import api from '../../services/api';
-import { detect } from 'detect-browser';
-import { useTranslation } from 'react-i18next';
 
 export default function Redirection({ history, match }) {
   const [t, i18n] = useTranslation();

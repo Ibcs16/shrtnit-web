@@ -1,20 +1,20 @@
 import '../../styles/animations.css';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaChartBar } from 'react-icons/fa';
+import { MdNewReleases } from 'react-icons/md';
+import { useSpring } from 'react-spring';
+import socketio from 'socket.io-client';
 
-import { Container } from './styles';
 import CreatedURLCounter from '../../components/CreatedURLCounter';
 import CustomInput from '../../components/CustomInput';
 import ErrorWarn from '../../components/ErrorWarn';
-import { FaChartBar } from 'react-icons/fa';
-import { MdNewReleases } from 'react-icons/md';
 import Modal from '../../components/GoToAnalyticsModal';
 import NewUrlBox from '../../components/NewUrlBox';
-import api from '../../services/api';
-import socketio from 'socket.io-client';
 import useModal from '../../hooks/modal';
-import { useSpring } from 'react-spring';
-import { useTranslation } from 'react-i18next';
+import api from '../../services/api';
+import { Container } from './styles';
 
 export default function Home({ history }) {
   const [t, i18next] = useTranslation();
@@ -32,7 +32,7 @@ export default function Home({ history }) {
   const [shouldExpandOptions, setShouldExpandOptions] = useState(false);
 
   // newly created urls notifications from socketio
-  const [incomingURLs, setIncomingURLS] = useState([]);
+  const [urlCounter, setUrlCounter] = useState(0);
 
   // errors from http request
   const [error, setError] = useState({ message: '' });
@@ -71,11 +71,11 @@ export default function Home({ history }) {
   }, []);
 
   // changes new url count everytime a URL is created by someone
-  useEffect(() => {
-    socket.on('created_url', url => {
-      setIncomingURLS([...incomingURLs, url]);
-    });
-  }, [socket, incomingURLs]);
+
+  socket.on('created_url', url => {
+    setUrlCounter(urlCounter + 1);
+    console.log('alguém criou uma url');
+  });
 
   const handleSubmitUrl = async (
     e,
@@ -165,7 +165,7 @@ export default function Home({ history }) {
           />
         )}
         {/* <button onClick={goToAnalytics}>PageNotFound></button> */}
-        <CreatedURLCounter numberOfURLs={incomingURLs.length} />
+        <CreatedURLCounter numberOfURLs={urlCounter} />
       </Container>
       <Modal
         history={history}

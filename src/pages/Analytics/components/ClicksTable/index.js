@@ -1,8 +1,8 @@
-import { ClickRow, Container } from './styles';
-
-import React from 'react';
 import { format } from 'date-fns';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ClickRow, Container } from './styles';
 
 export default function ClickList({ clicks }) {
   // translations

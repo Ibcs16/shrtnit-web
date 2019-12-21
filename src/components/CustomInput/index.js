@@ -1,13 +1,13 @@
 import '../../styles/animations.css';
 
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IoMdLock, IoMdSend, IoMdUnlock } from 'react-icons/io';
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
-import React, { useEffect, useState } from 'react';
-
-import { CustomInputContainer } from './styles';
-import MoreOptions from '../MoreOptions';
 import { useSpring } from 'react-spring';
-import { useTranslation } from 'react-i18next';
+
+import MoreOptions from '../MoreOptions';
+import { CustomInputContainer } from './styles';
 
 export default function CustomInput({
   error,
