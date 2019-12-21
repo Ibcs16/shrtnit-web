@@ -59,5 +59,8 @@
     "title": "Página no encontrada",
     "error": "Es posible que esta url no se haya creado o que no esté disponible en este momento."
   },
+  "format": {
+    "date": "yyyy-MM-dd"
+  },
   "loading": "Cargando..."
 }
