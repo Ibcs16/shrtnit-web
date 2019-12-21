@@ -35,17 +35,17 @@ export default function LanguageSelection() {
       {
         name: t('translation:english-us'),
         ln: 'en',
-        isSelected: i18n.language === 'en',
+        isSelected: i18n.language === 'en' || i18n.language === 'en-US',
       },
       {
         name: t('translation:spanish-es'),
         ln: 'es',
-        isSelected: i18n.language === 'es',
+        isSelected: i18n.language === 'es' || i18n.language === 'es-ES',
       },
       {
         name: t('translation:portuguese-br'),
         ln: 'pt-BR',
-        isSelected: i18n.language === 'pt-BR',
+        isSelected: i18n.language === 'pt-BR' || i18n.language === 'pt-br',
       },
     ]);
   }, [i18n.language, languageChange, t]);

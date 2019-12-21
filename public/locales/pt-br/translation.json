@@ -42,7 +42,9 @@
       "valid": "Usar código válido",
       "needed": "Nenhum código para pesquisar"
     },
-    "noAccesses": "Nenhum dado para mostrar, ainda..."
+    "noAccesses": "Nenhum dado para mostrar, ainda...",
+    "label": "Acessos nos últimos 7 dias",
+    "others": "Outros"
   },
   "auth": {
     "title": "Se autentique para acessar a URL",

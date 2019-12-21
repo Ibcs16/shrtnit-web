@@ -1,14 +1,17 @@
+import React, { useEffect, useState } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from './styles';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 // import { Container } from './styles';
 
-export default function Dashboard({ clicks, lastDayClicks }) {
+export default function Dashboard({ clicks, lastSevenDaysClicks }) {
   const [t, i18n] = useTranslation();
-  console.log(clicks, lastDayClicks);
+  const [dataWeek, setDataWeek] = useState({});
+  const [dataBrowsers, setDataBrowsers] = useState({});
+
+  console.log(clicks, lastSevenDaysClicks);
   // accesses from chrome browser
   const chrome = clicks.reduce((accumulator, click) => {
     return click.browser === 'Chrome' ? accumulator + 1 : accumulator;
@@ -30,37 +33,35 @@ export default function Dashboard({ clicks, lastDayClicks }) {
   }, 0);
 
   // global acceses and url accesses chart data
-  const data = {
-    labels: ['-7d', '-6d', '-4d', '-3d', '2d', '-1d', 'Current'],
-    datasets: [
-      {
-        label: 'Overall accesses',
-        backgroundColor: 'rgb(5, 111, 67)',
-        data: [7, 2, 4, 21, 2, 5, 9],
-      },
-      {
-        label: 'Accesses to this URL',
-        backgroundColor: 'rgb(4, 211, 97)',
-        data: [1, 2, 3, 4, 5, 8, 7],
-      },
-    ],
-  };
+  useEffect(() => {
+    setDataWeek({
+      labels: ['-7d', '-6d', '-4d', '-3d', '2d', '-1d', 'Current'],
+      datasets: [
+        {
+          label: t('translation:analytics.label'),
+          backgroundColor: 'rgb(4, 211, 97)',
+          data: lastSevenDaysClicks.reverse(),
+        },
+      ],
+    });
+
+    setDataBrowsers({
+      labels: ['Chrome', 'Firefox', 'Edge', t('translation:analytics.others')],
+      datasets: [
+        {
+          data: [chrome, mozilla, edge, others],
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.9)',
+            'rgba(255, 159, 64, 0.9)',
+            'rgba(54, 162, 235, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+          ],
+        },
+      ],
+    });
+  }, [lastSevenDaysClicks, i18n, t, chrome, mozilla, edge, others]);
 
   // browsers accesses comparison chart data
-  const dataBrowsers = {
-    labels: ['Chrome', 'Firefox', 'Edge', 'Others'],
-    datasets: [
-      {
-        data: [chrome, mozilla, edge, others],
-        backgroundColor: [
-          'rgba(255, 206, 86, 0.9)',
-          'rgba(255, 159, 64, 0.9)',
-          'rgba(54, 162, 235, 0.9)',
-          'rgba(153, 102, 255, 0.9)',
-        ],
-      },
-    ],
-  };
 
   return (
     <>
@@ -68,7 +69,7 @@ export default function Dashboard({ clicks, lastDayClicks }) {
         {clicks.length > 0 ? (
           <>
             <Line
-              data={data}
+              data={dataWeek}
               options={{
                 responsive: false,
                 maintainAspectRatio: true,

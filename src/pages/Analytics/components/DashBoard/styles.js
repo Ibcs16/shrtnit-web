@@ -6,8 +6,9 @@ export const Container = styled.div`
   .noAccesses {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

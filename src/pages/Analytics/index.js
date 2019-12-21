@@ -1,14 +1,14 @@
 import '../../styles/animations.css';
 
-import React, { useEffect, useState } from 'react';
-
-import ClicksTable from './components/ClicksTable';
-import { Container } from './styles';
-import DashBoard from './components/DashBoard';
-import { IoMdArrowBack } from 'react-icons/io';
-import api from '../../services/api';
 import { fomat } from 'date-fns';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { IoMdArrowBack } from 'react-icons/io';
+
+import api from '../../services/api';
+import ClicksTable from './components/ClicksTable';
+import DashBoard from './components/DashBoard';
+import { Container } from './styles';
 
 export default function Analytics({ history }) {
   // code from url parameter
@@ -31,7 +31,8 @@ export default function Analytics({ history }) {
       );
 
       if (res.status === 200) {
-        setUrl({ ...res.data });
+        setUrl({ ...res.data.url });
+        setData([...res.data.lastSevenDays]);
         console.log(res.data);
       }
     }
@@ -58,14 +59,14 @@ export default function Analytics({ history }) {
         </div>
         <section id="charts">
           <h1>{t('translation:analytics.charts')}</h1>
-          <DashBoard clicks={url.analytics.accesses} />
+          <DashBoard
+            clicks={url.analytics.accesses}
+            lastSevenDaysClicks={data}
+          />
         </section>
         <section id="clicks">
           <h1>{t('translation:analytics.accesses')}</h1>
-          <ClicksTable
-            clicks={url.analytics.accesses}
-            lastDayClicks={url.analytics}
-          />
+          <ClicksTable clicks={url.analytics.accesses} />
         </section>
       </main>
     </Container>
