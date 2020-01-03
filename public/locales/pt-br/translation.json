@@ -11,6 +11,8 @@
   "english-us": "Inglês-EUA",
   "spanish-es": "Espanhol-ES",
   "portuguese-br": "Português-BR",
+  "password_place_holder": "Preencher com uma chave de acesso",
+  "expiration": "Data de validade",
   "error": {
     "Couldn't connect to server": "Não foi possível conectar ao servidor",
     "This URL has already been shortened": "Essa URL já foi encurtada",

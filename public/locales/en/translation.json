@@ -9,8 +9,10 @@
   "copied": "Copied",
   "english-us": "English-US",
   "password": "Access key",
+  "password_place_holder": "Fill in an access key",
   "spanish-es": "Spanish-ES",
   "portuguese-br": "Portuguese-BR",
+  "expiration": "Expiration date",
   "error": {
     "Couldn't connect to server": "Couldn't connect to server",
     "This URL has already been shortened": "This URL has already been shortened",
