@@ -39,6 +39,7 @@ export const UrlOption = styled.div`
   border: 1px solid rgba(4, 211, 97, 0.7);
   border-radius: 4px;
   padding: 10px;
+  margin-top: 5px;
 
   div:first-child,
   div:last-child {
