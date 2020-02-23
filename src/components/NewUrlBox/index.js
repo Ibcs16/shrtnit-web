@@ -28,10 +28,12 @@ export default function NewUrlBox({ history, url, fadeAnimation }) {
       </div>
 
       <div className="right">
-        <p onClick={() => handleURLRedirect(url.code)}>{url.shortUrl}</p>
+        <p
+          onClick={() => handleURLRedirect(url.code)}
+        >{`${process.env.REACT_APP_BASE_URL}/${url.code}`}</p>
         {document.queryCommandSupported('copy') && (
           <CopyToClipboard
-            text={url.shortUrl}
+            text={`${process.env.REACT_APP_BASE_URL}/${url.code}`}
             onCopy={() => setCopySuccess(true)}
           >
             <button className={copySuccess ? 'copySuccess' : ''}>
